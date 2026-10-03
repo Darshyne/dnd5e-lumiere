@@ -1,0 +1,60 @@
+{
+  "id": "dnd5e-lumiere",
+  "title": "darsh-dnd · Ombres et ambiance",
+  "description": "Ombres de tokens (contact, portées par les lumières et le soleil), flottement des créatures en vol, perspective selon l'élévation. Purement visuel, calculé sur chaque client.",
+  "version": "0.10.0",
+  "authors": [
+    {
+      "name": "Darshyne"
+    }
+  ],
+  "url": "https://github.com/Darshyne/dnd5e-lumiere",
+  "license": "https://github.com/Darshyne/dnd5e-lumiere/blob/main/LICENSE",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14.367"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "6.0.0"
+        }
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "token-elevation-shadows",
+        "type": "module",
+        "reason": "Déplace lui aussi le visuel des tokens selon l'élévation et dessine ses propres ombres."
+      },
+      {
+        "id": "sprite-shadows",
+        "type": "module",
+        "reason": "Dessine lui aussi des ombres sous les tokens et les décale selon l'élévation."
+      },
+      {
+        "id": "flying-tokens",
+        "type": "module",
+        "reason": "Anime et redimensionne lui aussi les tokens en vol."
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/dnd5e-lumiere.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ]
+}

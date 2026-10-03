@@ -1,0 +1,101 @@
+{
+  "DND5E_LUMIERE": {
+    "Settings": {
+      "contactShadow": {
+        "Name": "Ombre de contact",
+        "Hint": "Une ombre douce sous chaque token."
+      },
+      "hover": {
+        "Name": "Flottement en vol",
+        "Hint": "Les créatures en vol oscillent doucement au-dessus de leur ombre."
+      },
+      "jump": {
+        "Name": "Arc des sauts",
+        "Hint": "Un token qui se déplace en sautant décrit un arc au-dessus de son ombre."
+      },
+      "perspective": {
+        "Name": "Perspective selon l'élévation",
+        "Hint": "Un token plus bas que le vôtre paraît plus petit, un token plus haut plus grand et semi-transparent s'il en recouvre un autre."
+      },
+      "lightShadows": {
+        "Name": "Ombres portées par les lumières",
+        "Hint": "Les deux lumières les plus fortes qui éclairent un token projettent son ombre à l'opposé."
+      },
+      "contactSize": {
+        "Name": "Taille de l'ombre de contact",
+        "Hint": "Diamètre de l'ombre par rapport au token (1 = même largeur ; au-dessus de 1 elle dépasse de l'image, nécessaire pour un portrait rond opaque)."
+      },
+      "contactOpacity": {
+        "Name": "Opacité de l'ombre de contact",
+        "Hint": "0 = invisible, 1 = noir franc au centre."
+      },
+      "hoverLift": {
+        "Name": "Hauteur de vol",
+        "Hint": "Écart entre un token en vol et son ombre, en fraction de sa hauteur."
+      },
+      "hoverAmplitude": {
+        "Name": "Amplitude du flottement",
+        "Hint": "Ampleur de l'oscillation, en fraction de la hauteur du token (0 = immobile)."
+      },
+      "jumpHeight": {
+        "Name": "Hauteur des sauts",
+        "Hint": "Hauteur du sommet de l'arc, en fraction de la longueur du saut (entre 0,3 et 1,25 case)."
+      },
+      "elevationLift": {
+        "Name": "Décalage maximal en hauteur",
+        "Hint": "Écart maximal, en cases, entre un token surélevé et son ombre (atteint vers 35 ft sur une grille de 5 ft)."
+      },
+      "perspectiveMax": {
+        "Name": "Écart de taille maximal",
+        "Hint": "Un token plus haut que le vôtre grandit, un plus bas rétrécit, d'au plus cette fraction (0,2 → entre 80 % et 120 %)."
+      },
+      "fadeAlpha": {
+        "Name": "Opacité d'un token qui en recouvre un autre",
+        "Hint": "Un token plus haut que le vôtre qui recouvre un token plus bas s'estompe à cette opacité ; il redevient opaque au survol ou quand vous le contrôlez."
+      },
+      "castIntensity": {
+        "Name": "Intensité des ombres portées",
+        "Hint": "Opacité des ombres projetées par les lumières (0 = aucune, 1 = noir franc sous une lumière vive)."
+      },
+      "lightHeight": {
+        "Name": "Hauteur des lumières (ft)",
+        "Hint": "Hauteur d'une lumière au-dessus de son élévation. Plus elle est basse, plus les ombres sont longues. Surchargeable par lumière avec le flag dnd5e-lumiere.height."
+      },
+      "castMaxLength": {
+        "Name": "Longueur maximale des ombres portées",
+        "Hint": "En cases."
+      },
+      "darkvisionBlur": {
+        "Name": "Flou au-delà de la vision dans le noir",
+        "Hint": "Au-delà de la portée de vision dans le noir de vos tokens, la lumière faible (visibilité réduite) est légèrement floue ; la lumière vive reste nette. Le gris à portée est celui de Foundry."
+      },
+      "darkvisionBlurStrength": {
+        "Name": "Intensité du flou (vision dans le noir)",
+        "Hint": "Rayon du flou en pixels d'écran (0 = aucun)."
+      },
+      "castFlicker": {
+        "Name": "Vacillement des ombres sous une flamme",
+        "Hint": "Sous une lumière animée en flamme (feu, torche), les ombres portées vacillent au rythme de la flamme : plus pâles et un peu plus longues quand elle baisse (0 = immobiles, 1 = défaut)."
+      },
+      "sunShadows": {
+        "Name": "Ombres du soleil",
+        "Hint": "Quand la lumière globale de la scène est active (Configuration de la scène, onglet Visibilité), le soleil projette l'ombre des tokens selon l'heure du monde : longue et rasante au lever et au coucher, courte à midi. Aube et crépuscule de Simple Timekeeping & Calendar s'il est actif (par mois, ou selon sa latitude et la saison), sinon lever à 6 h et coucher à 18 h. Se coupe par scène (Configuration de la scène, onglet Environnement)."
+      },
+      "sunAltitude": {
+        "Name": "Hauteur du soleil à midi (°)",
+        "Hint": "Plus elle est basse, plus les ombres de midi sont longues."
+      }
+    },
+    "LightConfig": {
+      "Height": "Hauteur de la lumière",
+      "HeightHint": "Hauteur au-dessus de son élévation, pour les ombres portées d'Ombres et ambiance. Plus elle est basse, plus les ombres sont longues. Vide : réglage du monde ({default})."
+    },
+    "SceneConfig": {
+      "Legend": "Soleil (Ombres et ambiance)",
+      "Sun": "Ombres du soleil",
+      "SunHint": "Décocher pour un intérieur éclairé par la lumière globale : le soleil n'y projette aucune ombre.",
+      "North": "Nord de la carte",
+      "NorthHint": "Où pointe le nord, dans le sens horaire depuis le haut de la carte (0 = en haut, 90 = à droite). Le soleil se lève à l'est et passe au sud à midi."
+    }
+  }
+}

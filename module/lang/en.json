@@ -1,0 +1,101 @@
+{
+  "DND5E_LUMIERE": {
+    "Settings": {
+      "contactShadow": {
+        "Name": "Contact shadow",
+        "Hint": "A soft shadow under every token."
+      },
+      "hover": {
+        "Name": "Hover while flying",
+        "Hint": "Flying creatures gently bob above their shadow."
+      },
+      "jump": {
+        "Name": "Jump arc",
+        "Hint": "A token that moves by jumping follows an arc above its shadow."
+      },
+      "perspective": {
+        "Name": "Elevation perspective",
+        "Hint": "A token lower than yours looks smaller; a higher one looks larger, and turns semi-transparent when it covers another token."
+      },
+      "lightShadows": {
+        "Name": "Light-cast shadows",
+        "Hint": "The two strongest lights on a token cast its shadow away from them."
+      },
+      "contactSize": {
+        "Name": "Contact shadow size",
+        "Hint": "Shadow diameter relative to the token (1 = same width; above 1 it shows around the image, needed for an opaque round portrait)."
+      },
+      "contactOpacity": {
+        "Name": "Contact shadow opacity",
+        "Hint": "0 = invisible, 1 = solid black at the centre."
+      },
+      "hoverLift": {
+        "Name": "Flight height",
+        "Hint": "Gap between a flying token and its shadow, as a fraction of its height."
+      },
+      "hoverAmplitude": {
+        "Name": "Hover amplitude",
+        "Hint": "Size of the bobbing, as a fraction of the token height (0 = still)."
+      },
+      "jumpHeight": {
+        "Name": "Jump height",
+        "Hint": "Height of the top of the arc, as a fraction of the jump's length (between 0.3 and 1.25 squares)."
+      },
+      "elevationLift": {
+        "Name": "Maximum elevation offset",
+        "Hint": "Largest gap, in grid squares, between a raised token and its shadow (reached around 35 ft on a 5 ft grid)."
+      },
+      "perspectiveMax": {
+        "Name": "Maximum size change",
+        "Hint": "A token higher than yours grows, a lower one shrinks, by at most this fraction (0.2 → between 80% and 120%)."
+      },
+      "fadeAlpha": {
+        "Name": "Opacity of a token covering another",
+        "Hint": "A token higher than yours that covers a lower token fades to this opacity; it turns opaque again on hover or when you control it."
+      },
+      "castIntensity": {
+        "Name": "Light-cast shadow intensity",
+        "Hint": "Opacity of shadows cast by lights (0 = none, 1 = solid black under bright light)."
+      },
+      "lightHeight": {
+        "Name": "Light height (ft)",
+        "Hint": "Height of a light above its elevation. The lower it is, the longer the shadows. Can be overridden per light with the dnd5e-lumiere.height flag."
+      },
+      "castMaxLength": {
+        "Name": "Maximum cast shadow length",
+        "Hint": "In grid squares."
+      },
+      "darkvisionBlur": {
+        "Name": "Blur beyond darkvision",
+        "Hint": "Beyond your tokens' darkvision range, dim light (lightly obscured) is slightly blurred; bright light stays sharp. The grey within range is Foundry's own."
+      },
+      "darkvisionBlurStrength": {
+        "Name": "Blur strength (darkvision)",
+        "Hint": "Blur radius in screen pixels (0 = none)."
+      },
+      "castFlicker": {
+        "Name": "Shadow flicker under flames",
+        "Hint": "Under an animated flame light (fire, torch), cast shadows flicker with the flame: paler and slightly longer when it dips (0 = still, 1 = default)."
+      },
+      "sunShadows": {
+        "Name": "Sun shadows",
+        "Hint": "When the scene global light is on (Scene configuration, Visibility tab), the sun casts token shadows according to world time: long at sunrise and sunset, short at noon. Uses dawn and dusk from Simple Timekeeping & Calendar when active (per month, or from its latitude and season), otherwise sunrise 6:00 and sunset 18:00. Can be turned off per scene (Scene configuration, Environment tab)."
+      },
+      "sunAltitude": {
+        "Name": "Sun height at noon (°)",
+        "Hint": "The lower it is, the longer the noon shadows."
+      }
+    },
+    "LightConfig": {
+      "Height": "Light height",
+      "HeightHint": "Height above its elevation, for Ombres et ambiance cast shadows. The lower it is, the longer the shadows. Empty: world setting ({default})."
+    },
+    "SceneConfig": {
+      "Legend": "Sun (Ombres et ambiance)",
+      "Sun": "Sun shadows",
+      "SunHint": "Uncheck for an interior lit by the global light: the sun casts no shadow there.",
+      "North": "Map north",
+      "NorthHint": "Where north points, clockwise from the top of the map (0 = up, 90 = right). The sun rises in the east and is due south at noon."
+    }
+  }
+}
