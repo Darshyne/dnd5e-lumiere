@@ -1,36 +1,35 @@
-# darsh-dnd · Ombres et ambiance (`dnd5e-lumiere`)
+# DAS · Shadows & Ambience (`dnd5e-lumiere`)
 
-Effets visuels de tokens pour **Foundry VTT V14** et **dnd5e 6.x** :
+Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundry VTT V14** and **dnd5e 6.x**:
 
-- ombre de contact sous chaque token ;
-- jusqu'à deux ombres elliptiques portées par les lumières de la scène et par le soleil ;
-- flottement des créatures en vol ;
-- perspective selon l'élévation, propre à chaque spectateur (plus bas = plus petit, plus haut = plus grand et
-  semi-transparent) ;
-- flou au-delà de la vision dans le noir.
+- a contact shadow under every token;
+- up to two elliptical shadows cast by the scene's lights and by the sun;
+- bobbing for flying creatures;
+- elevation perspective, specific to each viewer (lower = smaller, higher = larger and semi-transparent);
+- blur beyond darkvision range.
 
-**Purement visuel et local** : rien n'est jamais écrit dans un document, chaque client calcule son propre
-rendu. Aucune règle de vision ou de lumière ici : elles appartiennent au moteur
-[`dnd5e-combat`](https://github.com/Darshyne/dnd5e-combat), qui n'est pas requis (seul lien, facultatif :
-le « plein jour » lu dans son API quand il est actif). Incompatible avec Token Elevation Shadows, Sprite
-Shadows et Flying Tokens ; compatible avec Token Magic FX.
+**Purely visual and local**: nothing is ever written to a document, each client computes its own rendering.
+There are no vision or light rules here: those belong to the
+[`dnd5e-combat`](https://github.com/Darshyne/dnd5e-combat) engine, which is not required (the only, optional,
+link: "is it daylight" is read from its API when it is active). Incompatible with Token Elevation Shadows,
+Sprite Shadows and Flying Tokens; compatible with Token Magic FX.
 
 ## Installation
 
-Dans Foundry (ou sur The Forge), *Installer un module* → coller l'URL de manifeste :
+In Foundry (or on The Forge), *Install Module* → paste the manifest URL:
 
 ```
 https://github.com/Darshyne/dnd5e-lumiere/releases/latest/download/module.json
 ```
 
-Depuis les sources : le module Foundry est le
-sous-dossier `module/`, à copier ou lier dans `Data/modules/dnd5e-lumiere`. Tests : `npm install && npm test`.
+From source: the Foundry module is the `module/` subfolder, to copy or link into `Data/modules/dnd5e-lumiere`.
+Tests: `npm install && npm test`.
 
-## Licence
+## License
 
-Code sous licence MIT (voir `LICENSE`).
+Code under the MIT license (see `LICENSE`).
 
-Ce travail inclut des éléments du System Reference Document 5.2 (« SRD 5.2 ») de Wizards of the Coast LLC,
-disponible sur https://www.dndbeyond.com/srd. Le SRD 5.2 est sous licence Creative Commons Attribution 4.0
-International, disponible sur https://creativecommons.org/licenses/by/4.0/legalcode. Ce module n'est ni
-affilié à Wizards of the Coast ni approuvé par elle.
+This work includes material from the System Reference Document 5.2 ("SRD 5.2") by Wizards of the Coast LLC,
+available at https://www.dndbeyond.com/srd. The SRD 5.2 is licensed under the Creative Commons Attribution 4.0
+International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. This module is not
+affiliated with, nor endorsed by, Wizards of the Coast.
