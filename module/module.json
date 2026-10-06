@@ -1,8 +1,8 @@
 {
   "id": "dnd5e-lumiere",
-  "title": "darsh-dnd · Ombres et ambiance",
+  "title": "DAS · Shadows & Ambience",
   "description": "Ombres de tokens (contact, portées par les lumières et le soleil), flottement des créatures en vol, perspective selon l'élévation. Purement visuel, calculé sur chaque client.",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "authors": [
     {
       "name": "Darshyne"
