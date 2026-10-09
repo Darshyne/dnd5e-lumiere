@@ -99,5 +99,5 @@ Hooks.once("ready", () => {
   // La scène est dessinée avant `ready` ; Simple Timekeeping ne crée son instance (aube, crépuscule) qu'à son propre
   // `ready`, peut-être après le nôtre : le soleil est recalculé juste après.
   refreshSunSoon();
-  console.log(`${MODULE_ID} | prêt`);
+  console.log(`${MODULE_ID} | ready`);
 });

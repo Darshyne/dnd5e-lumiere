@@ -27,6 +27,12 @@ https://github.com/Darshyne/dnd5e-lumiere/releases/latest/download/module.json
 From source: the Foundry module is the `module/` subfolder, to copy or link into `Data/modules/dnd5e-lumiere`.
 Tests: `npm install && npm test`.
 
+## Translations
+
+The module ships in English and French. To add a language, copy `module/lang/en.json` to
+`module/lang/<code>.json`, translate the values (keep the keys and the `{placeholders}` as they are), and add an
+entry to `languages` in `module/module.json`. Any key missing from a translation falls back to English.
+
 ## License
 
 Code under the MIT license (see `LICENSE`).

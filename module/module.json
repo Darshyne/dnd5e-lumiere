@@ -1,8 +1,8 @@
 {
   "id": "dnd5e-lumiere",
   "title": "DAS · Shadows & Ambience",
-  "description": "Ombres de tokens (contact, portées par les lumières et le soleil), flottement des créatures en vol, perspective selon l'élévation. Purement visuel, calculé sur chaque client.",
-  "version": "0.10.1",
+  "description": "Token shadows (contact, cast by lights and by the sun), bobbing for flying creatures, elevation perspective, blur beyond Darkvision. Purely visual, computed on each client.",
+  "version": "0.11.0",
   "authors": [
     {
       "name": "Darshyne"
@@ -30,17 +30,17 @@
       {
         "id": "token-elevation-shadows",
         "type": "module",
-        "reason": "Déplace lui aussi le visuel des tokens selon l'élévation et dessine ses propres ombres."
+        "reason": "Also moves token visuals by elevation and draws its own shadows."
       },
       {
         "id": "sprite-shadows",
         "type": "module",
-        "reason": "Dessine lui aussi des ombres sous les tokens et les décale selon l'élévation."
+        "reason": "Also draws shadows under tokens and offsets them by elevation."
       },
       {
         "id": "flying-tokens",
         "type": "module",
-        "reason": "Anime et redimensionne lui aussi les tokens en vol."
+        "reason": "Also animates and resizes flying tokens."
       }
     ]
   },
