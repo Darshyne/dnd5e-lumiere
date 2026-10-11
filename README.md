@@ -2,6 +2,8 @@
 
 [![Tests](https://github.com/Darshyne/dnd5e-lumiere/actions/workflows/tests.yml/badge.svg)](https://github.com/Darshyne/dnd5e-lumiere/actions/workflows/tests.yml)
 
+**[Website](https://darshyne.github.io)** · **[Discord](https://discord.gg/PDSq8dYdTP)** (questions, bugs, ideas)
+
 Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundry VTT V14** and **dnd5e 6.x**:
 
 - a contact shadow under every token;
