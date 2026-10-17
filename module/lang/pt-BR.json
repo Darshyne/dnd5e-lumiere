@@ -1,0 +1,101 @@
+{
+  "DND5E_LUMIERE": {
+    "Settings": {
+      "contactShadow": {
+        "Name": "Sombra de contato",
+        "Hint": "Uma sombra suave sob cada token."
+      },
+      "hover": {
+        "Name": "Oscilação durante o voo",
+        "Hint": "Criaturas voadoras oscilam suavemente acima de suas sombras."
+      },
+      "jump": {
+        "Name": "Arco do salto",
+        "Hint": "Um token que se move saltando descreve um arco acima de sua sombra."
+      },
+      "perspective": {
+        "Name": "Perspectiva por elevação",
+        "Hint": "Um token abaixo do seu parece menor; um acima parece maior e fica semitransparente quando encobre outro token."
+      },
+      "lightShadows": {
+        "Name": "Sombras projetadas pelas luzes",
+        "Hint": "As duas fontes de luz mais fortes que iluminam um token projetam sua sombra na direção oposta."
+      },
+      "contactSize": {
+        "Name": "Tamanho da sombra de contato",
+        "Hint": "Diâmetro da sombra em relação ao token (1 = mesma largura; acima de 1, a sombra aparece ao redor da imagem, o que é necessário para retratos circulares opacos)."
+      },
+      "contactOpacity": {
+        "Name": "Opacidade da sombra de contato",
+        "Hint": "0 = invisível, 1 = preto sólido no centro."
+      },
+      "hoverLift": {
+        "Name": "Altura do voo",
+        "Hint": "Distância entre um token voador e sua sombra, como fração da altura do token."
+      },
+      "hoverAmplitude": {
+        "Name": "Amplitude da oscilação",
+        "Hint": "Intensidade da oscilação como fração da altura do token (0 = imóvel)."
+      },
+      "jumpHeight": {
+        "Name": "Altura do salto",
+        "Hint": "Altura do ponto mais alto do arco como fração do comprimento do salto (entre 0,3 e 1,25 quadrados)."
+      },
+      "elevationLift": {
+        "Name": "Deslocamento máximo por elevação",
+        "Hint": "Maior distância, em quadrados da grade, entre um token elevado e sua sombra (atingida por volta de 35 ft em uma grade de 5 ft)."
+      },
+      "perspectiveMax": {
+        "Name": "Variação máxima de tamanho",
+        "Hint": "Um token acima do seu aumenta de tamanho, enquanto um abaixo diminui, no máximo conforme esta fração (0,2 → entre 80% e 120%)."
+      },
+      "fadeAlpha": {
+        "Name": "Opacidade de um token sobre outro",
+        "Hint": "Um token acima do seu que encobre outro mais baixo fica com esta opacidade; volta a ficar opaco quando você passa o mouse sobre ele ou o controla."
+      },
+      "castIntensity": {
+        "Name": "Intensidade das sombras projetadas",
+        "Hint": "Opacidade das sombras projetadas pelas luzes (0 = nenhuma, 1 = preto sólido sob luz intensa)."
+      },
+      "lightHeight": {
+        "Name": "Altura da luz (ft)",
+        "Hint": "Altura de uma fonte de luz acima de sua elevação. Quanto mais baixa, mais longas as sombras. Pode ser substituída individualmente pela flag dnd5e-lumiere.height."
+      },
+      "castMaxLength": {
+        "Name": "Comprimento máximo das sombras projetadas",
+        "Hint": "Em quadrados da grade."
+      },
+      "darkvisionBlur": {
+        "Name": "Desfoque além da Visão no Escuro",
+        "Hint": "Além do alcance da Visão no Escuro dos seus tokens, a luz fraca (área levemente obscurecida) fica um pouco desfocada; a luz plena permanece nítida. O tom cinza dentro do alcance é do próprio Foundry."
+      },
+      "darkvisionBlurStrength": {
+        "Name": "Intensidade do desfoque (Visão no Escuro)",
+        "Hint": "Raio do desfoque em pixels da tela (0 = nenhum)."
+      },
+      "castFlicker": {
+        "Name": "Oscilação das sombras sob chamas",
+        "Hint": "Sob uma luz com animação de chama (fogo, tocha), as sombras projetadas oscilam junto com a chama: ficam mais claras e um pouco mais longas quando ela enfraquece (0 = sem oscilação, 1 = padrão)."
+      },
+      "sunShadows": {
+        "Name": "Sombras do sol",
+        "Hint": "Quando a Iluminação Global da cena está ativada (Configuração da Cena, aba Visibilidade), o sol projeta sombras dos tokens conforme a hora do mundo: longas ao nascer e ao pôr do sol, curtas ao meio-dia. Usa os horários de amanhecer e anoitecer do Simple Timekeeping & Calendar quando ativo (por mês ou conforme latitude e estação do ano); caso contrário, considera o nascer do sol às 6h e o pôr do sol às 18h. Pode ser desativado em cada cena (Configuração da Cena, aba Ambiente)."
+      },
+      "sunAltitude": {
+        "Name": "Altura do sol ao meio-dia (°)",
+        "Hint": "Quanto menor a altura, mais longas as sombras ao meio-dia."
+      }
+    },
+    "LightConfig": {
+      "Height": "Altura da luz",
+      "HeightHint": "Altura acima da elevação da fonte de luz, usada para projetar sombras no Shadows & Ambience. Quanto mais baixa, mais longas as sombras. Em branco: configuração do mundo ({default})."
+    },
+    "SceneConfig": {
+      "Legend": "Sol (Shadows & Ambience)",
+      "Sun": "Sombras do sol",
+      "SunHint": "Desmarque em ambientes internos iluminados pela Iluminação Global: o sol não projetará sombras nesse local.",
+      "North": "Norte do mapa",
+      "NorthHint": "Direção para a qual o norte aponta, em sentido horário a partir do topo do mapa (0 = para cima, 90 = para a direita). O sol nasce no leste e fica ao sul ao meio-dia."
+    }
+  }
+}
