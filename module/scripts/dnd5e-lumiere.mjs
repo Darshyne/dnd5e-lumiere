@@ -19,6 +19,7 @@ import { invalidateSun } from "./canvas/sun.mjs";
 import { MODULE_ID, registerSettings } from "./settings.mjs";
 import { registerLightConfig } from "./ui/light-config.mjs";
 import { registerSceneConfig } from "./ui/scene-config.mjs";
+import { registerTransitionSettings, transitionsApi } from "./transitions/index.mjs";
 
 function syncToken(token, flags) {
   syncHeight(token);
@@ -49,6 +50,8 @@ Hooks.once("init", () => {
   registerLightConfig();
   registerSceneConfig();
   registerDarkvisionBlur();
+  registerTransitionSettings();
+  game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
 
   Hooks.on("drawToken", token => syncToken(token));
   Hooks.on("refreshToken", (token, flags) => {

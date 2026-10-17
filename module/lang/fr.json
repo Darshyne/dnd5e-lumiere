@@ -84,6 +84,14 @@
       "sunAltitude": {
         "Name": "Hauteur du soleil à midi (°)",
         "Hint": "Plus elle est basse, plus les ombres de midi sont longues."
+      },
+      "levelTransition": {
+        "Name": "Transition de changement de niveau (alpha)",
+        "Hint": "Quand la vue passe à un autre niveau de la même scène, un effet de profondeur : en montant, le niveau quitté rétrécit et s'éloigne vers le bas pendant que le nouveau se pose par-dessus l'écran ; en descendant, l'inverse. Seul ce que voient vos tokens est montré. Expérimental."
+      },
+      "levelTransitionDuration": {
+        "Name": "Durée de la transition de niveau (ms)",
+        "Hint": "Durée de l'effet de profondeur au changement de niveau."
       }
     },
     "LightConfig": {
@@ -96,6 +104,52 @@
       "SunHint": "Décocher pour un intérieur éclairé par la lumière globale : le soleil n'y projette aucune ombre.",
       "North": "Nord de la carte",
       "NorthHint": "Où pointe le nord, dans le sens horaire depuis le haut de la carte (0 = en haut, 90 = à droite). Le soleil se lève à l'est et passe au sud à midi."
+    },
+    "Transitions": {
+      "Title": "Transitions de scène",
+      "Menu": {
+        "Name": "Transitions de scène",
+        "Label": "Transitions",
+        "Hint": "Transitions de scène personnalisées (encre…), une transition pour toutes les scènes du monde, et import / export de fichiers de configuration de transitions (JSON)."
+      },
+      "None": "Aucune",
+      "Global": "Transition du monde",
+      "GlobalHint": "Jouée quand quelqu'un entre dans une scène qui n'a pas de transition propre (configuration de la scène, onglet Général).",
+      "Type": "Transition",
+      "Duration": "Durée",
+      "ActiveOnly": "Seulement à l'activation de la scène",
+      "ActiveOnlyHint": "Pas quand un MJ ne fait que regarder une autre scène.",
+      "Override": "Remplacer les transitions des scènes",
+      "OverrideHint": "Jouée aussi dans les scènes qui ont leur propre transition.",
+      "Save": "Enregistrer",
+      "Saved": "Transition du monde enregistrée.",
+      "List": "Transitions d'Ombres et ambiance",
+      "Name": "Nom",
+      "Effect": "Effet",
+      "Source": "Origine",
+      "BuiltIn": "Livrée",
+      "Imported": "Importée",
+      "ImportHint": "Un fichier de transition ne contient que des paramètres d'un effet du module (aucun code) : exportez une transition livrée pour avoir un modèle, changez son id, son libellé et ses paramètres, puis importez-la. Même id = remplacée.",
+      "Import": "Importer un fichier JSON…",
+      "ExportAll": "Exporter les transitions importées",
+      "ExportOne": "Exporter en JSON",
+      "Preview": "Aperçu sur la scène affichée",
+      "Remove": "Supprimer cette transition",
+      "RemoveConfirm": "Supprimer la transition importée « {id} » ? Les scènes qui l'utilisent reviendront au fondu de Foundry.",
+      "NoCanvas": "Aucune scène n'est affichée.",
+      "BadJson": "Ce fichier n'est pas un JSON valide : {error}",
+      "ImportErrors": "{count} erreur(s) dans le fichier (voir la console). Première : {first}",
+      "ImportDone": "Transitions importées : {added} ajoutée(s), {replaced} remplacée(s) ({warnings} avertissement(s), voir la console).",
+      "Base": {
+        "ink": "Encre",
+        "depth": "Profondeur"
+      },
+      "Presets": {
+        "ink": "Encre (aquarelle)",
+        "inkWash": "Encre (délavage)",
+        "inkBlood": "Encre de sang",
+        "depth": "Profondeur (changement de niveau)"
+      }
     }
   }
 }

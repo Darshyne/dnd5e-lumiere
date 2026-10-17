@@ -84,6 +84,14 @@
       "sunAltitude": {
         "Name": "Sun height at noon (°)",
         "Hint": "The lower it is, the longer the noon shadows."
+      },
+      "levelTransition": {
+        "Name": "Level change transition (alpha)",
+        "Hint": "When the view moves to another level of the same scene, a depth effect: going up, the level you leave shrinks and fades away below while the new one settles from above the screen; going down, the reverse. Only what your tokens see is shown. Experimental."
+      },
+      "levelTransitionDuration": {
+        "Name": "Level change transition duration (ms)",
+        "Hint": "Length of the depth effect when changing level."
       }
     },
     "LightConfig": {
@@ -96,6 +104,52 @@
       "SunHint": "Uncheck for an interior lit by Global Illumination: the sun casts no shadows there.",
       "North": "Map north",
       "NorthHint": "Where north points, clockwise from the top of the map (0 = up, 90 = right). The sun rises in the east and is due south at noon."
+    },
+    "Transitions": {
+      "Title": "Scene transitions",
+      "Menu": {
+        "Name": "Scene transitions",
+        "Label": "Transitions",
+        "Hint": "Custom scene transitions (ink…), a world-wide transition for every scene, and import / export of transition configuration files (JSON)."
+      },
+      "None": "None",
+      "Global": "World transition",
+      "GlobalHint": "Played when anyone enters a scene that has no transition of its own (Scene configuration, Basics tab).",
+      "Type": "Transition",
+      "Duration": "Duration",
+      "ActiveOnly": "Only when the scene is activated",
+      "ActiveOnlyHint": "Not when a GM merely views another scene.",
+      "Override": "Replace the scenes' own transitions",
+      "OverrideHint": "Also played in scenes that have their own transition.",
+      "Save": "Save",
+      "Saved": "World transition saved.",
+      "List": "Shadows & Ambience transitions",
+      "Name": "Name",
+      "Effect": "Effect",
+      "Source": "Source",
+      "BuiltIn": "Built-in",
+      "Imported": "Imported",
+      "ImportHint": "A transition file only holds parameters of a built-in effect (no code): export a built-in transition to get a template, change its id, label and params, then import it. Same id = replaced.",
+      "Import": "Import a JSON file…",
+      "ExportAll": "Export imported transitions",
+      "ExportOne": "Export as JSON",
+      "Preview": "Preview on the current scene",
+      "Remove": "Delete this transition",
+      "RemoveConfirm": "Delete the imported transition \"{id}\"? Scenes using it will fall back to Foundry's fade.",
+      "NoCanvas": "No scene is displayed.",
+      "BadJson": "This file is not valid JSON: {error}",
+      "ImportErrors": "{count} error(s) in the file (see the console). First: {first}",
+      "ImportDone": "Transitions imported: {added} added, {replaced} replaced ({warnings} warning(s), see the console).",
+      "Base": {
+        "ink": "Ink",
+        "depth": "Depth"
+      },
+      "Presets": {
+        "ink": "Ink (watercolour)",
+        "inkWash": "Ink (wash reveal)",
+        "inkBlood": "Blood ink",
+        "depth": "Depth (level change)"
+      }
     }
   }
 }

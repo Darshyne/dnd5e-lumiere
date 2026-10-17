@@ -1,0 +1,11 @@
+/* Fenêtre « Transitions » (ui/transitions-app.mjs) */
+.dnd5e-lumiere-transitions .dl-transitions { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.25rem; }
+.dnd5e-lumiere-transitions table { width: 100%; border-collapse: collapse; margin: 0.25rem 0; }
+.dnd5e-lumiere-transitions th { text-align: left; font-weight: 600; }
+.dnd5e-lumiere-transitions td, .dnd5e-lumiere-transitions th { padding: 0.2rem 0.4rem; }
+.dnd5e-lumiere-transitions td.num { text-align: right; white-space: nowrap; }
+.dnd5e-lumiere-transitions td.actions { white-space: nowrap; text-align: right; }
+.dnd5e-lumiere-transitions td.actions button { width: auto; min-width: 1.9rem; display: inline-flex; padding: 0 0.4rem; }
+.dnd5e-lumiere-transitions .dl-row { display: flex; gap: 0.5rem; }
+.dnd5e-lumiere-transitions .form-fields button { flex: 0 0 auto; width: auto; }
+.dnd5e-lumiere-transitions .window-content { overflow-y: auto; }
