@@ -2,7 +2,7 @@
   "id": "dnd5e-lumiere",
   "title": "DAS · Shadows & Ambience",
   "description": "Token shadows (contact, cast by lights and by the sun), bobbing for flying creatures, elevation perspective, blur beyond Darkvision. Purely visual, computed on each client.",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "authors": [
     {
       "name": "Darshyne"
@@ -14,7 +14,7 @@
   "download": "https://github.com/Darshyne/dnd5e-lumiere/releases/latest/download/module.zip",
   "compatibility": {
     "minimum": "14",
-    "verified": "14.367"
+    "verified": "14.369"
   },
   "relationships": {
     "systems": [
