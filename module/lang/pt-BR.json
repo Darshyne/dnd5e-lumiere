@@ -84,6 +84,14 @@
       "sunAltitude": {
         "Name": "Altura do sol ao meio-dia (°)",
         "Hint": "Quanto menor a altura, mais longas as sombras ao meio-dia."
+      },
+      "levelTransition": {
+        "Name": "Transição de mudança de nível (alfa)",
+        "Hint": "Ao mudar a visão para outro nível da mesma cena, exibe um efeito de profundidade: ao subir, o nível anterior encolhe e desaparece abaixo, enquanto o novo surge do alto da tela; ao descer, ocorre o inverso. Mostra apenas o que seus tokens conseguem enxergar. Experimental."
+      },
+      "levelTransitionDuration": {
+        "Name": "Duração da transição de nível (ms)",
+        "Hint": "Duração do efeito de profundidade ao mudar de nível."
       }
     },
     "LightConfig": {
@@ -96,6 +104,52 @@
       "SunHint": "Desmarque em ambientes internos iluminados pela Iluminação Global: o sol não projetará sombras nesse local.",
       "North": "Norte do mapa",
       "NorthHint": "Direção para a qual o norte aponta, em sentido horário a partir do topo do mapa (0 = para cima, 90 = para a direita). O sol nasce no leste e fica ao sul ao meio-dia."
+    },
+    "Transitions": {
+      "Title": "Transições de cena",
+      "Menu": {
+        "Name": "Transições de cena",
+        "Label": "Transições",
+        "Hint": "Transições personalizadas de cena (tinta etc.), uma transição global para todas as cenas e importação/exportação de configurações de transição (JSON)."
+      },
+      "None": "Nenhuma",
+      "Global": "Transição global",
+      "GlobalHint": "Executada quando alguém entra em uma cena sem transição própria (Configuração da cena, aba Básico).",
+      "Type": "Transição",
+      "Duration": "Duração",
+      "ActiveOnly": "Somente quando a cena for ativada",
+      "ActiveOnlyHint": "Não é executada quando o mestre apenas visualiza outra cena.",
+      "Override": "Substituir as transições próprias das cenas",
+      "OverrideHint": "Também executa a transição global em cenas que já possuem uma transição própria.",
+      "Save": "Salvar",
+      "Saved": "Transição global salva.",
+      "List": "Transições do Shadows & Ambience",
+      "Name": "Nome",
+      "Effect": "Efeito",
+      "Source": "Origem",
+      "BuiltIn": "Integrada",
+      "Imported": "Importada",
+      "ImportHint": "O arquivo de transição contém apenas parâmetros de um efeito integrado (sem código): exporte uma transição integrada para obter um modelo, altere seu ID, nome e parâmetros e importe o arquivo. Um ID repetido substitui a transição existente.",
+      "Import": "Importar arquivo JSON…",
+      "ExportAll": "Exportar transições importadas",
+      "ExportOne": "Exportar como JSON",
+      "Preview": "Prévia na cena atual",
+      "Remove": "Excluir esta transição",
+      "RemoveConfirm": "Excluir a transição importada \"{id}\"? As cenas que a utilizam voltarão a usar a transição de esmaecimento do Foundry.",
+      "NoCanvas": "Nenhuma cena está sendo exibida.",
+      "BadJson": "Este arquivo não contém um JSON válido: {error}",
+      "ImportErrors": "{count} erro(s) no arquivo (consulte o console). Primeiro erro: {first}",
+      "ImportDone": "Transições importadas: {added} adicionada(s), {replaced} substituída(s) ({warnings} aviso(s); consulte o console).",
+      "Base": {
+        "ink": "Tinta",
+        "depth": "Profundidade"
+      },
+      "Presets": {
+        "ink": "Tinta (aquarela)",
+        "inkWash": "Tinta (revelação por aguada)",
+        "inkBlood": "Tinta de sangue",
+        "depth": "Profundidade (mudança de nível)"
+      }
     }
   }
 }
