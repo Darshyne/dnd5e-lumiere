@@ -120,7 +120,7 @@
     },
     "TileConfig": {
       "Roof": "Roof always visible",
-      "RoofHint": "Shadows & Ambience: this tile (a roof drawn with its façade, as on DM Andy's maps) is always shown, even through walls and the fog of war, lit and under the weather as when seen. It still fades when a token goes under it (occlusion above). Purely visual: it reveals nothing beneath it."
+      "RoofHint": "Shadows & Ambience: this tile (a roof drawn with its façade, as on DM Andy's maps) is always shown, even through walls and the fog of war, lit and under the weather as when seen. It no longer fades under the mouse; it still fades when a token goes under it (use Fade occlusion above, not Surface). Purely visual: it reveals nothing beneath it."
     },
     "SceneConfig": {
       "Legend": "Sun (Shadows & Ambience)",

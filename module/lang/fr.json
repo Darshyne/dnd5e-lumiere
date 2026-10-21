@@ -120,7 +120,7 @@
     },
     "TileConfig": {
       "Roof": "Toit toujours visible",
-      "RoofHint": "Ombres et ambiance : cette tuile (un toit dessiné avec sa façade, comme sur les cartes de DM Andy) reste affichée même à travers les murs et le brouillard de guerre, éclairée et sous la météo comme si elle était vue. Elle s'efface toujours quand un token passe dessous (occlusion ci-dessus). Purement visuel : rien de ce qu'elle couvre n'est révélé."
+      "RoofHint": "Ombres et ambiance : cette tuile (un toit dessiné avec sa façade, comme sur les cartes de DM Andy) reste affichée même à travers les murs et le brouillard de guerre, éclairée et sous la météo comme si elle était vue. Elle ne s'efface plus au survol de la souris, seulement quand un token passe dessous (mode d’occlusion par fondu ci-dessus, pas par surface). Purement visuel : rien de ce qu'elle couvre n'est révélé."
     },
     "SceneConfig": {
       "Legend": "Soleil (Ombres et ambiance)",
