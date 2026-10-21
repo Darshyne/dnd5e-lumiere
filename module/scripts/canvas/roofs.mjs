@@ -12,10 +12,7 @@
  * les siens. Ce qui n'est pas touché :
  *  - le brouillard exploré, enregistré par le cœur, ne lit que `canvas.visibility.vision` (perception/fog.mjs:425), pas ce conteneur ;
  *  - la visibilité des tokens, des portes, la vision des règles (moteur de combat) se calculent sur les polygones, pas sur la texture.
- * Le fondu au survol de la souris est coupé sur une tuile marquée (`mesh.hoverFade`, que le cœur repose à chaque `_refreshMesh`,
- * placeables/tile.mjs:365 — d'où sa remise à faux à chaque image) : le toit reste affiché, il ne s'efface que quand un token passe
- * dessous (demande de l'utilisateur, 2026-10-21). Rendu à la tuile démarquée par un `refreshMesh`.
- * Quand un token est sous le toit (occulté), que la souris l'estompe malgré tout, ou qu'une surface occultée de V14 le touche (plafond de niveau
+ * Quand un token est sous le toit (occulté), que la souris l'estompe, ou qu'une surface occultée de V14 le touche (plafond de niveau
  * survolé : `canvas.masks.occlusion.occludedSurfaces`, layers/masks/occlusion.mjs:69, 298-302), la silhouette s'efface : l'intérieur
  * n'est jamais révélé à travers le brouillard.
  */
@@ -80,8 +77,6 @@ function dropTile(tile) {
   if ( !d ) return;
   if ( !d.sprite.destroyed ) d.sprite.destroy();
   drawn.delete(tile);
-  // Le cœur recalcule son fondu au survol.
-  if ( !tile.destroyed && tile.mesh && !tile.mesh.destroyed ) tile.renderFlags.set({ refreshMesh: true });
   if ( canvas?.masks?.vision ) canvas.masks.vision.renderDirty = true;
 }
 
@@ -117,7 +112,6 @@ function tick() {
     const mesh = tile.mesh;
     if ( !marked(tile) || tile.destroyed || !mesh || mesh.destroyed || !mesh.texture ) continue;
     wanted.add(tile);
-    if ( mesh.hoverFade ) mesh.hoverFade = false;
     let d = drawn.get(tile);
     if ( !d || d.sprite.destroyed ) {
       const sprite = new PIXI.Sprite(mesh.texture);
