@@ -92,6 +92,26 @@
       "levelTransitionDuration": {
         "Name": "Duração da transição de nível (ms)",
         "Hint": "Duração do efeito de profundidade ao mudar de nível."
+      },
+      "etherealView": {
+        "Name": "Visão do Plano Etéreo",
+        "Hint": "Quando o token pelo qual você observa está no Plano Etéreo (condição Etéreo do dnd5e), o Plano Material fica monocromático, desfocado e envolto em névoa cinzenta; as criaturas etéreas aparecem nítidas, com suas próprias cores e um discreto halo azulado."
+      },
+      "etherealBlur": {
+        "Name": "Plano Etéreo: desfoque do Plano Material",
+        "Hint": "Raio do desfoque em pixels da tela (0 = nenhum)."
+      },
+      "etherealMist": {
+        "Name": "Plano Etéreo: névoa",
+        "Hint": "Intensidade da névoa cinza-azulada que cobre o Plano Material (0 = cinza uniforme)."
+      },
+      "etherealHalo": {
+        "Name": "Plano Etéreo: opacidade do halo",
+        "Hint": "Halo ao redor das criaturas etéreas vistas do Plano Etéreo (0 = sem halo)."
+      },
+      "etherealHaloColor": {
+        "Name": "Plano Etéreo: cor do halo",
+        "Hint": "Cor do halo ao redor das criaturas etéreas."
       }
     },
     "LightConfig": {
