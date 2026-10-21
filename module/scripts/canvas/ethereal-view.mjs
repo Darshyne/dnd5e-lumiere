@@ -68,9 +68,16 @@ function viewers() {
   return (canvas.tokens?.placeables ?? []).filter(t => t.isOwner);
 }
 
+/** Le moteur de combat a-t-il coupé le plan Éthéré (son interrupteur du MJ) ? Sans lui, l'état seul décide. */
+function engineSwitchedOff() {
+  const engine = game.modules.get("dnd5e-combat");
+  try { return !!(engine?.active && (engine.api?.ethereal?.enabled?.() === false)); }
+  catch { return false; }
+}
+
 /** La vue depuis l'Éthéré est-elle due sur ce client ? */
 export function etherealViewActive() {
-  return !!canvas?.ready && (setting("etherealView") !== false) && viewers().some(isEthereal);
+  return !!canvas?.ready && (setting("etherealView") !== false) && !engineSwitchedOff() && viewers().some(isEthereal);
 }
 
 export function registerEtherealView() {
@@ -82,6 +89,8 @@ export function registerEtherealView() {
     Hooks.on(hook, effect => { if ( effect?.statuses?.has?.("ethereal") ) setTimeout(refresh, 0); });
   }
   Hooks.on("destroyToken", token => dropToken(token));
+  // L'interrupteur du plan Éthéré du moteur basculé.
+  Hooks.on("dnd5e-combat.etherealPlane", () => refresh());
   // Le moteur de combat cède sa vue grise à celle-ci (couplage facultatif : sans le moteur, ce hook n'est jamais appelé).
   Hooks.on("dnd5e-combat.etherealView", () => ((setting("etherealView") !== false) ? false : undefined));
 }
