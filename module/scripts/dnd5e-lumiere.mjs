@@ -17,11 +17,9 @@ import { removeHeight, startJump, syncHeight } from "./canvas/hover.mjs";
 import { removePerspective, syncElevatedAround, syncPerspective } from "./canvas/perspective.mjs";
 import { invalidateSun } from "./canvas/sun.mjs";
 import { refresh as refreshEtherealView, registerEtherealView } from "./canvas/ethereal-view.mjs";
-import { registerRoofs } from "./canvas/roofs.mjs";
 import { MODULE_ID, registerSettings } from "./settings.mjs";
 import { registerLightConfig } from "./ui/light-config.mjs";
 import { registerSceneConfig } from "./ui/scene-config.mjs";
-import { registerTileConfig } from "./ui/tile-config.mjs";
 import { registerTransitionSettings, transitionsApi } from "./transitions/index.mjs";
 
 function syncToken(token, flags) {
@@ -55,8 +53,6 @@ Hooks.once("init", () => {
   registerSceneConfig();
   registerDarkvisionBlur();
   registerEtherealView();
-  registerRoofs();
-  registerTileConfig();
   registerTransitionSettings();
   game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
 

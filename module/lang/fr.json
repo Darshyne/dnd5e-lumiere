@@ -118,10 +118,6 @@
       "Height": "Hauteur de la lumière",
       "HeightHint": "Hauteur au-dessus de son élévation, pour les ombres portées d'Ombres et ambiance. Plus elle est basse, plus les ombres sont longues. Vide : réglage du monde ({default})."
     },
-    "TileConfig": {
-      "Roof": "Toit toujours visible",
-      "RoofHint": "Ombres et ambiance : cette tuile (un toit dessiné avec sa façade, comme sur les cartes de DM Andy) reste affichée même à travers les murs et le brouillard de guerre, éclairée et sous la météo comme si elle était vue. Elle s'efface toujours quand un token passe dessous (occlusion ci-dessus). Purement visuel : rien de ce qu'elle couvre n'est révélé."
-    },
     "SceneConfig": {
       "Legend": "Soleil (Ombres et ambiance)",
       "Sun": "Ombres du soleil",
