@@ -15,6 +15,11 @@ Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundr
 - bobbing for flying creatures;
 - elevation perspective, specific to each viewer (lower = smaller, higher = larger and semi-transparent);
 - blur beyond darkvision range;
+- a view from the **Ethereal Plane**: when a token you look from is Ethereal, the Material Plane turns blurred, grey and
+  misty, and Ethereal creatures stand out, sharp, with a faint bluish halo;
+- **roofs always visible**: a tile ticked « Roof always visible » (tile configuration, *Overhead* tab) stays shown
+  through walls and the fog of war, lit and under the weather as if seen — for roofs drawn with their façade, as on
+  DM Andy's maps. It still fades when a token goes under it, and reveals nothing beneath it;
 - custom **scene transitions** (watercolour ink…), a world-wide transition for every scene, and import / export of
   transition presets as JSON.
 

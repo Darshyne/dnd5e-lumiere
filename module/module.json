@@ -1,8 +1,8 @@
 {
   "id": "dnd5e-lumiere",
   "title": "DAS · Shadows & Ambience",
-  "description": "Token shadows (contact, cast by lights and by the sun), bobbing for flying creatures, elevation perspective, blur beyond Darkvision. Purely visual, computed on each client. Custom scene transitions (ink), a world-wide transition and JSON import of transition presets.",
-  "version": "0.12.1",
+  "description": "Token shadows (contact, cast by lights and by the sun), bobbing for flying creatures, elevation perspective, blur beyond Darkvision, a view from the Ethereal Plane, roofs always visible through the fog of war. Purely visual, computed on each client. Custom scene transitions (ink), a world-wide transition and JSON import of transition presets.",
+  "version": "0.13.0",
   "authors": [
     {
       "name": "Darshyne"
