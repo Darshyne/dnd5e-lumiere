@@ -92,6 +92,26 @@
       "levelTransitionDuration": {
         "Name": "Durée de la transition de niveau (ms)",
         "Hint": "Durée de l'effet de profondeur au changement de niveau."
+      },
+      "etherealView": {
+        "Name": "Vue depuis le plan Éthéré",
+        "Hint": "Quand un token d'où vous regardez est Éthéré (état « Éthéré » de dnd5e), le plan matériel devient monochrome, flou, d'un gris brumeux ; les créatures Éthérées s'en détachent, nettes, dans leurs couleurs, avec un léger halo bleuté."
+      },
+      "etherealBlur": {
+        "Name": "Plan Éthéré : flou du plan matériel",
+        "Hint": "Rayon du flou en pixels d'écran (0 = aucun)."
+      },
+      "etherealMist": {
+        "Name": "Plan Éthéré : brume",
+        "Hint": "Part de brume gris bleuté sur le plan matériel (0 = gris simple)."
+      },
+      "etherealHalo": {
+        "Name": "Plan Éthéré : opacité du halo",
+        "Hint": "Halo autour des créatures Éthérées vues depuis l'Éthéré (0 = aucun halo)."
+      },
+      "etherealHaloColor": {
+        "Name": "Plan Éthéré : couleur du halo",
+        "Hint": "Couleur du halo autour des créatures Éthérées."
       }
     },
     "LightConfig": {

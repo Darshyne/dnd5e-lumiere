@@ -6,6 +6,7 @@
 import { CAST_DEFAULTS } from "./core/cast-shadow.mjs";
 import { CONTACT_DEFAULTS } from "./core/contact-shadow.mjs";
 import { DARKVISION_DEFAULTS } from "./core/darkvision.mjs";
+import { ETHEREAL_DEFAULTS } from "./core/ethereal.mjs";
 import { HOVER_DEFAULTS } from "./core/hover.mjs";
 import { JUMP_DEFAULTS } from "./core/jump.mjs";
 import { PERSPECTIVE_DEFAULTS } from "./core/perspective.mjs";
@@ -54,6 +55,7 @@ export function registerSettings(refresh) {
   toggle("perspective", { implemented: true });
   toggle("lightShadows", { implemented: true });
   toggle("darkvisionBlur", { implemented: true });
+  toggle("etherealView", { implemented: true });
 
   const range = (key, def, min, max, step) => game.settings.register(MODULE_ID, key, {
     name: `DND5E_LUMIERE.Settings.${key}.Name`,
@@ -89,4 +91,17 @@ export function registerSettings(refresh) {
   });
   range("sunAltitude", SUN_DEFAULTS.maxAltitude, 15, 85, 5);
   range("darkvisionBlurStrength", DARKVISION_DEFAULTS.blur, 0, 8, 0.5);
+  // Le plan Éthéré vu de l'Éthéré : l'aspect, le même pour toute la table.
+  range("etherealBlur", ETHEREAL_DEFAULTS.blur, 0, 8, 0.5);
+  range("etherealMist", ETHEREAL_DEFAULTS.mist, 0, 0.8, 0.05);
+  range("etherealHalo", ETHEREAL_DEFAULTS.halo, 0, 1, 0.05);
+  game.settings.register(MODULE_ID, "etherealHaloColor", {
+    name: "DND5E_LUMIERE.Settings.etherealHaloColor.Name",
+    hint: "DND5E_LUMIERE.Settings.etherealHaloColor.Hint",
+    scope: "world",
+    config: true,
+    type: new foundry.data.fields.ColorField({ nullable: false, initial: ETHEREAL_DEFAULTS.haloColor }),
+    default: ETHEREAL_DEFAULTS.haloColor,
+    onChange: changed("etherealHaloColor", refresh)
+  });
 }

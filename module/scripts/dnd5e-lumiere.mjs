@@ -16,6 +16,7 @@ import { referenceToken } from "./canvas/elevation.mjs";
 import { removeHeight, startJump, syncHeight } from "./canvas/hover.mjs";
 import { removePerspective, syncElevatedAround, syncPerspective } from "./canvas/perspective.mjs";
 import { invalidateSun } from "./canvas/sun.mjs";
+import { refresh as refreshEtherealView, registerEtherealView } from "./canvas/ethereal-view.mjs";
 import { MODULE_ID, registerSettings } from "./settings.mjs";
 import { registerLightConfig } from "./ui/light-config.mjs";
 import { registerSceneConfig } from "./ui/scene-config.mjs";
@@ -33,6 +34,7 @@ function refreshAll() {
   invalidateSun();
   for ( const token of canvas.tokens.placeables ) syncToken(token);
   refreshDarkvisionBlur();
+  refreshEtherealView();
 }
 
 // Sélectionner plusieurs tokens déclenche un controlToken par token : un seul recalcul suffit.
@@ -50,6 +52,7 @@ Hooks.once("init", () => {
   registerLightConfig();
   registerSceneConfig();
   registerDarkvisionBlur();
+  registerEtherealView();
   registerTransitionSettings();
   game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
 

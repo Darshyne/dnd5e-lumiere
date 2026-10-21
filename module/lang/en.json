@@ -92,6 +92,26 @@
       "levelTransitionDuration": {
         "Name": "Level change transition duration (ms)",
         "Hint": "Length of the depth effect when changing level."
+      },
+      "etherealView": {
+        "Name": "View from the Ethereal Plane",
+        "Hint": "When a token you look from is Ethereal (dnd5e's Ethereal condition), the Material Plane turns monochrome, blurred and misty grey; Ethereal creatures stand out, sharp, in their own colours, with a faint bluish halo."
+      },
+      "etherealBlur": {
+        "Name": "Ethereal Plane: blur of the Material Plane",
+        "Hint": "Blur radius in screen pixels (0 = none)."
+      },
+      "etherealMist": {
+        "Name": "Ethereal Plane: mist",
+        "Hint": "How much bluish-grey mist covers the Material Plane (0 = plain grey)."
+      },
+      "etherealHalo": {
+        "Name": "Ethereal Plane: halo opacity",
+        "Hint": "Halo around Ethereal creatures seen from the Ethereal Plane (0 = no halo)."
+      },
+      "etherealHaloColor": {
+        "Name": "Ethereal Plane: halo colour",
+        "Hint": "Colour of the halo around Ethereal creatures."
       }
     },
     "LightConfig": {
