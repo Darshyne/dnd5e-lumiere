@@ -12,11 +12,12 @@
  * les siens. Ce qui n'est pas touché :
  *  - le brouillard exploré, enregistré par le cœur, ne lit que `canvas.visibility.vision` (perception/fog.mjs:425), pas ce conteneur ;
  *  - la visibilité des tokens, des portes, la vision des règles (moteur de combat) se calculent sur les polygones, pas sur la texture.
- * Quand un token est sous le toit (occulté) ou que la souris l'estompe, la silhouette s'efface avec lui : l'intérieur n'est jamais
- * révélé à travers le brouillard.
+ * Quand un token est sous le toit (occulté), que la souris l'estompe, ou qu'une surface occultée de V14 le touche (plafond de niveau
+ * survolé : `canvas.masks.occlusion.occludedSurfaces`, layers/masks/occlusion.mjs:69, 298-302), la silhouette s'efface : l'intérieur
+ * n'est jamais révélé à travers le brouillard.
  */
 
-import { isMarkedRoof, roofMaskAlpha, roofSignature } from "../core/roofs.mjs";
+import { isMarkedRoof, roofMaskAlpha, roofSignature, touchesOccludedSurface } from "../core/roofs.mjs";
 import { MODULE_ID } from "../settings.mjs";
 
 // Le masque ne lit que le canal rouge : un sprite y écrirait les couleurs de l'image (un toit brun ≈ 0,3, donc encore 70 % de
@@ -105,6 +106,8 @@ function tick() {
   if ( !parent ) return;
   let dirty = false;
   const wanted = new Set();
+  const surfaces = [...(canvas.masks.occlusion?.occludedSurfaces ?? [])]
+    .map(s => ({ elevation: s.elevation, bounds: s.region?.bounds }));
   for ( const tile of canvas.tiles.placeables ) {
     const mesh = tile.mesh;
     if ( !marked(tile) || tile.destroyed || !mesh || mesh.destroyed || !mesh.texture ) continue;
@@ -120,6 +123,7 @@ function tick() {
     const alpha = roofMaskAlpha({
       visible: mesh.visible && !!tile.visible,
       occluded: mesh.occluded,
+      surfaceOccluded: touchesOccludedSurface(surfaces, { elevation: mesh.elevation, bounds: tile.bounds }),
       hoverOcclusion: mesh._hoverFadeState?.occlusion ?? 0
     });
     const signature = roofSignature({

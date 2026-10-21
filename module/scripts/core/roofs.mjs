@@ -15,13 +15,31 @@ export function isMarkedRoof(flags) {
 /**
  * La part de la silhouette du toit à révéler, 0–1. Rien si la tuile n'est pas affichée sur ce client (cachée, autre niveau) ; rien
  * quand le cœur l'occulte (un token dessous) : sinon l'intérieur, sous le toit estompé, serait révélé à travers le brouillard. Le
- * fondu au survol (`hoverOcclusion`, 0–1) estompe la silhouette avec le toit.
+ * fondu au survol (`hoverOcclusion`, 0–1) estompe la silhouette avec le toit. Rien non plus quand une surface occultée (plafond de
+ * niveau V14 survolé ou au-dessus d'un token) touche la tuile (`surfaceOccluded`) : en mode Surface, le toit s'y efface et laisse voir
+ * les niveaux du dessous (vu le 2026-10-21 sur la carte de l'utilisateur, au survol, côté joueur).
  */
-export function roofMaskAlpha({ visible=true, occluded=false, hoverOcclusion=0, alpha=1 }={}) {
-  if ( !visible || occluded ) return 0;
+export function roofMaskAlpha({ visible=true, occluded=false, surfaceOccluded=false, hoverOcclusion=0, alpha=1 }={}) {
+  if ( !visible || occluded || surfaceOccluded ) return 0;
   const hover = Number.isFinite(hoverOcclusion) ? Math.min(Math.max(hoverOcclusion, 0), 1) : 0;
   const a = Number.isFinite(alpha) ? Math.min(Math.max(alpha, 0), 1) : 1;
   return a * (1 - hover);
+}
+
+/**
+ * Une surface occultée touche-t-elle la tuile ? `surfaces` : `{ elevation, bounds }` des surfaces occultées (bornes = rectangle de leur
+ * région) ; `tile` : `{ elevation, bounds }`. Une surface à l'élévation de la tuile ou en dessous l'efface (mode Surface) ; on reste
+ * prudent : peu importe le mode de la tuile, elle repasse sous le brouillard le temps de l'occlusion.
+ */
+export function touchesOccludedSurface(surfaces, tile) {
+  const b = tile?.bounds;
+  if ( !b ) return false;
+  for ( const s of surfaces ?? [] ) {
+    const r = s?.bounds;
+    if ( !r || !(s.elevation <= tile.elevation) ) continue;
+    if ( (r.x < b.x + b.width) && (r.x + r.width > b.x) && (r.y < b.y + b.height) && (r.y + r.height > b.y) ) return true;
+  }
+  return false;
 }
 
 /** Une empreinte de l'état dessiné, pour ne redessiner le masque que quand il change. */
