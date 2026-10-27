@@ -13,6 +13,14 @@ describe("castsNoShadow", () => {
     expect(castsNoShadow(npc({ value: "custom", custom: " piège " }))).toBe(true);
   });
 
+  it("un trésor (acteur Groupe sans type) n'a pas d'ombre, un groupe de personnages ou une rencontre si", () => {
+    const group = value => ({ actor: { type: "group", system: { type: { value } } } });
+    expect(castsNoShadow(group(""))).toBe(true);
+    expect(castsNoShadow(group(undefined))).toBe(true);
+    expect(castsNoShadow(group("party"))).toBe(false);
+    expect(castsNoShadow(group("encounter"))).toBe(false);
+  });
+
   it("une créature ordinaire garde son ombre", () => {
     expect(castsNoShadow(npc({ value: "humanoid" }))).toBe(false);
     expect(castsNoShadow(npc({ value: "custom", custom: "Trapper" }))).toBe(false);
