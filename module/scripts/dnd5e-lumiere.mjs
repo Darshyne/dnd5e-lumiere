@@ -88,6 +88,8 @@ Hooks.once("init", () => {
   // Changer d'action de déplacement (marche → vol) ne déclenche aucun rafraîchissement du token.
   Hooks.on("updateToken", (doc, changes) => {
     if ( ("movementAction" in changes) && doc.object ) syncToken(doc.object);
+    // Devenu objet du moteur (un piège coché après la pose) : il perd son ombre, ou la retrouve.
+    else if ( foundry.utils.hasProperty(changes, "flags.dnd5e-combat") && doc.object ) syncToken(doc.object);
     // Hauteur de la lumière portée (un flag) : sa source n'est pas réinitialisée, pas de lightingRefresh.
     if ( foundry.utils.hasProperty(changes, `flags.${MODULE_ID}`) ) refreshAllCastShadows();
   });

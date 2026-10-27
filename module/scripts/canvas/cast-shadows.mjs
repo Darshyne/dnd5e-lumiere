@@ -20,6 +20,7 @@
  * qui ne parcourt que ces ombres-là.
  */
 
+import { castsNoShadow } from "../core/shadowless.mjs";
 import {
   CAST_DEFAULTS, castShadowGeometry, directionalShadowGeometry, flicker, lightIntensity, pickLights
 } from "../core/cast-shadow.mjs";
@@ -43,7 +44,7 @@ let tickerAdded = false;
 
 export function syncCastShadows(token) {
   const mesh = token.mesh;
-  if ( token.destroyed || !mesh || mesh.destroyed || !setting("lightShadows") ) return removeCastShadows(token);
+  if ( token.destroyed || !mesh || mesh.destroyed || !setting("lightShadows") || castsNoShadow(token.document) ) return removeCastShadows(token);
   const pool = pools.get(token) ?? [];
   pools.set(token, pool);
 

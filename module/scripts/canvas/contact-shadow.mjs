@@ -10,6 +10,7 @@
  */
 
 import { contactShadowGeometry } from "../core/contact-shadow.mjs";
+import { castsNoShadow } from "../core/shadowless.mjs";
 import { shadowResponse } from "../core/hover.mjs";
 import { MODULE_ID, setting } from "../settings.mjs";
 import { shadowTexture } from "./shadow-texture.mjs";
@@ -25,7 +26,7 @@ const shadows = new WeakMap();
 export function syncContactShadow(token) {
   const mesh = token.mesh;
   if ( !mesh || mesh.destroyed ) return removeContactShadow(token);
-  if ( !setting("contactShadow") ) return removeContactShadow(token);
+  if ( !setting("contactShadow") || castsNoShadow(token.document) ) return removeContactShadow(token);
 
   let shadow = shadows.get(token);
   if ( !shadow || shadow.destroyed ) {
