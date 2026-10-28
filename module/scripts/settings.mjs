@@ -56,6 +56,7 @@ export function registerSettings(refresh) {
   toggle("lightShadows", { implemented: true });
   toggle("darkvisionBlur", { implemented: true });
   toggle("etherealView", { implemented: true });
+  toggle("carriedSounds", { implemented: true });
 
   const range = (key, def, min, max, step) => game.settings.register(MODULE_ID, key, {
     name: `DND5E_LUMIERE.Settings.${key}.Name`,

@@ -14,6 +14,7 @@ const NS = "DND5E_LUMIERE";
  */
 const HELPERS = [
   { re: /\bi18n\("([^"]+)"\)/g, keys: s => [`${NS}.SceneConfig.${s}`] },
+  { re: /\blabel\("([^"]+)"\)/g, keys: s => [`${NS}.SoundConfig.${s}`] },
   { re: /\b(?:toggle|range)\("(\w+)"/g, keys: s => [`${NS}.Settings.${s}.Name`, `${NS}.Settings.${s}.Hint`] }
 ];
 const moduleDir = join(import.meta.dirname, "..", "module");

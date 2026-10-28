@@ -112,6 +112,10 @@
       "etherealHaloColor": {
         "Name": "Ethereal Plane: halo colour",
         "Hint": "Colour of the halo around Ethereal creatures."
+      },
+      "carriedSounds": {
+        "Name": "Carried sounds",
+        "Hint": "Play the ambient sounds carried by creatures and areas (set on the token, Appearance tab, and with the « Ambient sound (DAS) » region behavior)."
       }
     },
     "LightConfig": {
@@ -169,6 +173,47 @@
         "inkWash": "Ink (wash reveal)",
         "inkBlood": "Blood ink",
         "depth": "Depth (level change)"
+      }
+    },
+    "SoundConfig": {
+      "Legend": "Carried sound (DAS)",
+      "Hint": "An ambient sound this creature carries, heard by each player from their own token, on the Ambience channel. Silent while the token is hidden, dead, hidden by Stealth, or on the Ethereal Plane.",
+      "Idle": "Idle sound",
+      "Combat": "Combat sound",
+      "CombatHint": "Replaces the idle sound while the creature is in a started combat. Empty: the idle sound goes on.",
+      "Radius": "Range",
+      "Volume": "Volume",
+      "Walls": "Stopped by walls",
+      "WallsHint": "Unticked, the sound is muffled behind a wall; ticked, it is cut off."
+    },
+    "SoundBehavior": {
+      "FIELDS": {
+        "idle": {
+          "label": "Idle sound",
+          "hint": "Heard at full volume inside the area, fading beyond its edge."
+        },
+        "combat": {
+          "label": "Combat sound",
+          "hint": "Replaces the idle sound while a combat is started on this scene. Empty: the idle sound goes on."
+        },
+        "radius": {
+          "label": "Range beyond the edge",
+          "hint": "In scene units. Empty: six grid squares."
+        },
+        "volume": {
+          "label": "Volume"
+        },
+        "walls": {
+          "label": "Stopped by walls",
+          "hint": "Unticked, the sound is muffled behind a wall; ticked, it is cut off."
+        }
+      }
+    }
+  },
+  "TYPES": {
+    "RegionBehavior": {
+      "dnd5e-lumiere": {
+        "ambientSound": "Ambient sound (DAS)"
       }
     }
   }

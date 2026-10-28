@@ -18,13 +18,31 @@ Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundr
 - a view from the **Ethereal Plane**: when a token you look from is Ethereal, the Material Plane turns blurred, grey and
   misty, and Ethereal creatures stand out, sharp, with a faint bluish halo;
 - custom **scene transitions** (watercolour ink…), a world-wide transition for every scene, and import / export of
-  transition presets as JSON.
+  transition presets as JSON;
+- **carried sounds**: an ambient sound carried by a creature or an area, with an idle sound and a combat sound.
 
-**Purely visual and local**: nothing is ever written to a token or actor, each client computes its own rendering.
+**Purely visual and local**: nothing is ever written to a token or actor during play, each client computes its own
+rendering (the only writes are the GM's settings, such as a token's carried sound).
 There are no vision or light rules here: those belong to the
 [`dnd5e-combat`](https://github.com/Darshyne/dnd5e-combat) engine, which is not required (the only, optional,
 link: "is it daylight" is read from its API when it is active). Incompatible with Token Elevation Shadows,
 Sprite Shadows and Flying Tokens; compatible with Token Magic FX.
+
+## Carried sounds
+
+A creature can carry an ambient sound, a growl, a buzz or a chant: in the token configuration (or the prototype token,
+so every token placed afterwards has it), tab *Appearance*, block **Carried sound (DAS)**. An area carries one with the
+region behavior **Ambient sound (DAS)**: full volume inside, fading beyond its edge.
+
+- Two sounds: **idle**, and **combat**, played instead while the creature is in a started combat (for an area, while a
+  combat is started on its scene). Without a combat sound, the idle sound goes on.
+- Each player hears it from their own token, like Foundry's ambient sounds, on the **Ambience** volume channel. Behind
+  a wall the sound is muffled, or cut off if *Stopped by walls* is ticked.
+- A creature falls silent while hidden by the GM, dead, hidden by Stealth (DAS · Core), or on the Ethereal Plane
+  (unless you listen from the Ethereal Plane too).
+- Several creatures with the same sound file play it once, at the volume of the nearest one.
+- After installing or updating to this version, **relaunch the world** once: Foundry only registers a new region
+  behavior then.
 
 ## Scene transitions
 

@@ -66,5 +66,10 @@
       "name": "Português (Brasil)",
       "path": "lang/pt-BR.json"
     }
-  ]
+  ],
+  "documentTypes": {
+    "RegionBehavior": {
+      "ambientSound": {}
+    }
+  }
 }

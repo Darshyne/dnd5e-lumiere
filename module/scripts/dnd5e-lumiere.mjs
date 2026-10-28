@@ -9,6 +9,7 @@
  * (échelle, transparence).
  */
 
+import { onTokenMoved, registerCarriedSounds, removeTokenSound, syncAllSoundsSoon } from "./canvas/carried-sounds.mjs";
 import { refreshAllCastShadows, removeCastShadows, syncCastShadows } from "./canvas/cast-shadows.mjs";
 import { removeContactShadow, syncContactShadow } from "./canvas/contact-shadow.mjs";
 import { markDirty as refreshDarkvisionBlur, registerDarkvisionBlur } from "./canvas/darkvision-blur.mjs";
@@ -20,6 +21,8 @@ import { refresh as refreshEtherealView, registerEtherealView } from "./canvas/e
 import { MODULE_ID, registerSettings } from "./settings.mjs";
 import { registerLightConfig } from "./ui/light-config.mjs";
 import { registerSceneConfig } from "./ui/scene-config.mjs";
+import { registerSoundBehavior } from "./canvas/sound-behavior.mjs";
+import { registerSoundConfig } from "./ui/sound-config.mjs";
 import { registerTransitionSettings, transitionsApi } from "./transitions/index.mjs";
 
 function syncToken(token, flags) {
@@ -35,6 +38,7 @@ function refreshAll() {
   for ( const token of canvas.tokens.placeables ) syncToken(token);
   refreshDarkvisionBlur();
   refreshEtherealView();
+  syncAllSoundsSoon();
 }
 
 // Sélectionner plusieurs tokens déclenche un controlToken par token : un seul recalcul suffit.
@@ -53,6 +57,9 @@ Hooks.once("init", () => {
   registerSceneConfig();
   registerDarkvisionBlur();
   registerEtherealView();
+  registerSoundBehavior();
+  registerSoundConfig();
+  registerCarriedSounds();
   registerTransitionSettings();
   game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
 
@@ -63,12 +70,15 @@ Hooks.once("init", () => {
     if ( flags.refreshElevation && (token === referenceToken()) ) refreshAllSoon();
     // Un token a bougé : ceux qui sont en hauteur le recouvrent peut-être, ou plus.
     else if ( flags.refreshPosition || flags.refreshElevation ) syncElevatedAround(token);
+    // Un son porté suit son token ; les zones sonores suivent l'auditeur.
+    if ( flags.refreshPosition || flags.refreshElevation ) onTokenMoved(token);
   });
   Hooks.on("destroyToken", token => {
     removeHeight(token);
     removePerspective(token);
     removeContactShadow(token);
     removeCastShadows(token);
+    removeTokenSound(token);
   });
   // Une lumière a bougé, changé ou s'est éteinte (effects.mjs:274) : toutes les ombres portées changent.
   // Elle suit aussi un changement d'obscurité (environment.mjs:194) : le plein jour, donc le soleil, a pu changer.

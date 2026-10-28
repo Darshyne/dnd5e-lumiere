@@ -112,6 +112,10 @@
       "etherealHaloColor": {
         "Name": "Plan Éthéré : couleur du halo",
         "Hint": "Couleur du halo autour des créatures Éthérées."
+      },
+      "carriedSounds": {
+        "Name": "Sons portés",
+        "Hint": "Joue les sons d'ambiance portés par les créatures et les zones (réglés sur le token, onglet Apparence, et avec le comportement de région « Son d'ambiance (DAS) »)."
       }
     },
     "LightConfig": {
@@ -169,6 +173,47 @@
         "inkWash": "Encre (délavage)",
         "inkBlood": "Encre de sang",
         "depth": "Profondeur (changement de niveau)"
+      }
+    },
+    "SoundConfig": {
+      "Legend": "Son porté (DAS)",
+      "Hint": "Un son d'ambiance que cette créature porte, entendu par chaque joueur depuis son propre token, sur le canal Ambiance. Muet quand le token est masqué, mort, caché par la Furtivité, ou dans le plan Éthéré.",
+      "Idle": "Son au repos",
+      "Combat": "Son en combat",
+      "CombatHint": "Remplace le son au repos tant que la créature est dans un combat commencé. Vide : le son au repos continue.",
+      "Radius": "Portée",
+      "Volume": "Volume",
+      "Walls": "Arrêté par les murs",
+      "WallsHint": "Décoché, le son est étouffé derrière un mur ; coché, il est coupé."
+    },
+    "SoundBehavior": {
+      "FIELDS": {
+        "idle": {
+          "label": "Son au repos",
+          "hint": "Entendu à plein volume dans la zone, décroissant au-delà de son bord."
+        },
+        "combat": {
+          "label": "Son en combat",
+          "hint": "Remplace le son au repos tant qu'un combat est commencé sur cette scène. Vide : le son au repos continue."
+        },
+        "radius": {
+          "label": "Portée au-delà du bord",
+          "hint": "En unités de la scène. Vide : six cases."
+        },
+        "volume": {
+          "label": "Volume"
+        },
+        "walls": {
+          "label": "Arrêté par les murs",
+          "hint": "Décoché, le son est étouffé derrière un mur ; coché, il est coupé."
+        }
+      }
+    }
+  },
+  "TYPES": {
+    "RegionBehavior": {
+      "dnd5e-lumiere": {
+        "ambientSound": "Son d'ambiance (DAS)"
       }
     }
   }
