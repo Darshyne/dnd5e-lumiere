@@ -92,6 +92,30 @@
       "levelTransitionDuration": {
         "Name": "Duração da transição de nível (ms)",
         "Hint": "Duração do efeito de profundidade ao mudar de nível."
+      },
+      "etherealView": {
+        "Name": "Visão do Plano Etéreo",
+        "Hint": "Quando o token pelo qual você observa está no Plano Etéreo (condição Etéreo do dnd5e), o Plano Material fica monocromático, desfocado e envolto em névoa cinzenta; as criaturas etéreas aparecem nítidas, com suas próprias cores e um discreto halo azulado."
+      },
+      "etherealBlur": {
+        "Name": "Plano Etéreo: desfoque do Plano Material",
+        "Hint": "Raio do desfoque em pixels da tela (0 = nenhum)."
+      },
+      "etherealMist": {
+        "Name": "Plano Etéreo: névoa",
+        "Hint": "Intensidade da névoa cinza-azulada que cobre o Plano Material (0 = cinza uniforme)."
+      },
+      "etherealHalo": {
+        "Name": "Plano Etéreo: opacidade do halo",
+        "Hint": "Halo ao redor das criaturas etéreas vistas do Plano Etéreo (0 = sem halo)."
+      },
+      "etherealHaloColor": {
+        "Name": "Plano Etéreo: cor do halo",
+        "Hint": "Cor do halo ao redor das criaturas etéreas."
+      },
+      "carriedSounds": {
+        "Name": "Sons vinculados",
+        "Hint": "Reproduz os sons ambientes vinculados a criaturas e áreas (configurados no token, na aba Aparência, e com o comportamento de região « Som ambiente (DAS) »)."
       }
     },
     "LightConfig": {
@@ -149,6 +173,47 @@
         "inkWash": "Tinta (revelação por aguada)",
         "inkBlood": "Tinta de sangue",
         "depth": "Profundidade (mudança de nível)"
+      }
+    },
+    "SoundConfig": {
+      "Legend": "Som vinculado (DAS)",
+      "Hint": "Um som ambiente que acompanha esta criatura, ouvido por cada jogador a partir de seu próprio token, no canal Ambiente. Fica silencioso enquanto o token está oculto, morto, oculto por Furtividade ou no Plano Etéreo.",
+      "Idle": "Som padrão",
+      "Combat": "Som de combate",
+      "CombatHint": "Substitui o som padrão enquanto a criatura participa de um combate iniciado. Em branco: o som padrão continua.",
+      "Radius": "Alcance",
+      "Volume": "Volume",
+      "Walls": "Bloqueado por paredes",
+      "WallsHint": "Desmarcado: o som fica abafado atrás de uma parede. Marcado: ele é interrompido."
+    },
+    "SoundBehavior": {
+      "FIELDS": {
+        "idle": {
+          "label": "Som padrão",
+          "hint": "Ouvido no volume máximo dentro da área, diminuindo gradualmente além da borda."
+        },
+        "combat": {
+          "label": "Som de combate",
+          "hint": "Substitui o som padrão enquanto há um combate iniciado nesta cena. Em branco: o som padrão continua."
+        },
+        "radius": {
+          "label": "Alcance além da borda",
+          "hint": "Em unidades da cena. Em branco: seis casas da grade."
+        },
+        "volume": {
+          "label": "Volume"
+        },
+        "walls": {
+          "label": "Bloqueado por paredes",
+          "hint": "Desmarcado: o som fica abafado atrás de uma parede. Marcado: ele é interrompido."
+        }
+      }
+    }
+  },
+  "TYPES": {
+    "RegionBehavior": {
+      "dnd5e-lumiere": {
+        "ambientSound": "Som ambiente (DAS)"
       }
     }
   }
