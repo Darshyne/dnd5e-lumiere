@@ -25,6 +25,7 @@ import { registerLightConfig } from "./ui/light-config.mjs";
 import { registerSceneConfig } from "./ui/scene-config.mjs";
 import { registerSoundBehavior } from "./canvas/sound-behavior.mjs";
 import { registerSoundConfig } from "./ui/sound-config.mjs";
+import { registerSettingsWindow } from "./ui/settings-window.mjs";
 import { registerTransitionSettings, transitionsApi } from "./transitions/index.mjs";
 
 function syncToken(token, flags) {
@@ -66,6 +67,7 @@ Hooks.once("init", () => {
   registerFacingConfig();
   registerCarriedSounds();
   registerTransitionSettings();
+  registerSettingsWindow();
   game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
 
   Hooks.on("drawToken", token => syncToken(token));

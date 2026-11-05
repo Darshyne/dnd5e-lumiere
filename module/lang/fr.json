@@ -224,6 +224,15 @@
       "ArtRight": "À droite",
       "ArtLeft": "À gauche",
       "ArtHint": "Le sens dans lequel la créature regarde sur l'image telle qu'affichée (miroir horizontal compris)."
+    },
+    "SettingsWindow": {
+      "Tab": {
+        "shadows": "Ombres",
+        "movement": "Mouvement et hauteur",
+        "vision": "Vision",
+        "sounds": "Sons",
+        "transitions": "Transitions"
+      }
     }
   },
   "TYPES": {

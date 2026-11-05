@@ -224,6 +224,15 @@
       "ArtRight": "Right",
       "ArtLeft": "Left",
       "ArtHint": "The way the creature faces in the art as displayed (horizontal mirror included)."
+    },
+    "SettingsWindow": {
+      "Tab": {
+        "shadows": "Shadows",
+        "movement": "Movement and height",
+        "vision": "Vision",
+        "sounds": "Sounds",
+        "transitions": "Transitions"
+      }
     }
   },
   "TYPES": {
