@@ -116,7 +116,7 @@ function darkvisionViewers() {
 
 /**
  * Plein jour : la scène entière est en lumière vive, le flou n'a pas lieu d'être.
- * - Avec le moteur de combat (`dnd5e-combat` ≥ 0.146.0, couplage **facultatif**, sans dépendance — SPEC §9, 0.9.0) : ce
+ * - Avec le moteur de combat (`dnd5e-combat` ≥ 0.146.0, requis depuis le 2026-11-05 ; la lecture reste prudente — SPEC §9, 0.9.0) : ce
  *   que ses règles disent de la lumière globale (`api.ui.globalLight()`), crépuscule compris — une lumière globale vive
  *   qu'il compte comme faible au-delà de son seuil d'obscurité laisse le flou, comme elle impose le Désavantage.
  * - Sans lui : core/darkvision.mjs, `isDaylight` — lumière globale **vive** et obscurité dans sa plage. Une lumière

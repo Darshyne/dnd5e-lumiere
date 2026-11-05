@@ -1,8 +1,8 @@
 /**
  * Catégories des réglages : Shadows & Ambience range ses réglages en sous-onglets dans la fenêtre de réglages de la suite DAS,
  * déclarée par l'API publique de DAS · Core (`api.settings.registerWindow`, moteur ≥ 0.241.0), comme Combat UI. Au `setup`, quand
- * tous les modules ont posé leur API. Sans DAS · Core (ce module ne le requiert pas) ou avec un moteur plus ancien, rien ne change :
- * les réglages restent dans la liste de Foundry, avec le bouton « Transitions ».
+ * tous les modules ont posé leur API. DAS · Core est requis (module.json, ≥ 0.241.0, décision de l'utilisateur 2026-11-05) ; si son
+ * API manque quand même (moteur désactivé à la main) ou refuse la déclaration, les réglages restent dans la liste de Foundry.
  */
 
 import { SETTINGS_TABS } from "../core/settings-tabs.mjs";

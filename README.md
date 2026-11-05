@@ -25,8 +25,9 @@ Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundr
 **Purely visual and local**: nothing is ever written to a token or actor during play, each client computes its own
 rendering (the only writes are the GM's settings, such as a token's carried sound).
 There are no vision or light rules here: those belong to the
-[`dnd5e-combat`](https://github.com/Darshyne/dnd5e-combat) engine, which is not required (the only, optional,
-link: "is it daylight" is read from its API when it is active). Incompatible with Token Elevation Shadows,
+[`dnd5e-combat`](https://github.com/Darshyne/dnd5e-combat) engine (DAS · Core), which is **required** (0.241.0 or
+later): its settings window holds this module's settings, sorted by category, and "is it daylight" is read from its API.
+Incompatible with Token Elevation Shadows,
 Sprite Shadows and Flying Tokens; compatible with Token Magic FX.
 
 ## Carried sounds
@@ -108,6 +109,8 @@ In Foundry (or on The Forge), *Install Module* → paste the manifest URL:
 ```
 https://github.com/Darshyne/dnd5e-lumiere/releases/latest/download/module.json
 ```
+
+It requires **DAS · Core** (`dnd5e-combat`), which Foundry offers to install along with it.
 
 From source: the Foundry module is the `module/` subfolder, to copy or link into `Data/modules/dnd5e-lumiere`.
 Tests: `npm install && npm test`.

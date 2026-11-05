@@ -26,6 +26,16 @@
         }
       }
     ],
+    "requires": [
+      {
+        "id": "dnd5e-combat",
+        "type": "module",
+        "manifest": "https://github.com/Darshyne/dnd5e-combat/releases/latest/download/module.json",
+        "compatibility": {
+          "minimum": "0.241.0"
+        }
+      }
+    ],
     "conflicts": [
       {
         "id": "token-elevation-shadows",
