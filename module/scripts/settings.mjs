@@ -90,6 +90,17 @@ export function registerSettings(refresh) {
     default: true,
     onChange: changed("sunShadows", refresh)
   });
+  // Retourner les tokens selon leur déplacement (issue #4) : décision de monde, coupée par défaut (les tokens vus de dessus
+  // n'en veulent pas) ; chaque token peut dire « toujours » ou « jamais » dans sa configuration.
+  game.settings.register(MODULE_ID, "flipTokens", {
+    name: "DND5E_LUMIERE.Settings.flipTokens.Name",
+    hint: "DND5E_LUMIERE.Settings.flipTokens.Hint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+    onChange: changed("flipTokens", refresh)
+  });
   range("sunAltitude", SUN_DEFAULTS.maxAltitude, 15, 85, 5);
   range("darkvisionBlurStrength", DARKVISION_DEFAULTS.blur, 0, 8, 0.5);
   // Le plan Éthéré vu de l'Éthéré : l'aspect, le même pour toute la table.

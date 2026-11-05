@@ -116,6 +116,10 @@
       "carriedSounds": {
         "Name": "Carried sounds",
         "Hint": "Play the ambient sounds carried by creatures and areas (set on the token, Appearance tab, and with the « Ambient sound (DAS) » region behavior)."
+      },
+      "flipTokens": {
+        "Name": "Flip tokens according to their movement",
+        "Hint": "A token moving left faces left, a token moving right faces right. Meant for side-view art (portraits, standees). Only the display changes, nothing is saved; the art stays upright (no rotation). Each token can say \"always\" or \"never\" in its configuration (Appearance tab)."
       }
     },
     "LightConfig": {
@@ -208,6 +212,18 @@
           "hint": "Unticked, the sound is muffled behind a wall; ticked, it is cut off."
         }
       }
+    },
+    "FacingConfig": {
+      "Legend": "Facing (DAS)",
+      "Hint": "Flips the art left or right according to the direction of travel, for side-view art. The token then keeps its art upright, without rotation; its saved rotation still drives vision.",
+      "Mode": "Flip according to movement",
+      "ModeSetting": "Follow the world setting",
+      "ModeAlways": "Always",
+      "ModeNever": "Never",
+      "Art": "The art faces",
+      "ArtRight": "Right",
+      "ArtLeft": "Left",
+      "ArtHint": "The way the creature faces in the art as displayed (horizontal mirror included)."
     }
   },
   "TYPES": {

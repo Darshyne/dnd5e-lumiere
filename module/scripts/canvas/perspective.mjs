@@ -12,6 +12,7 @@
 import { overlaps, perspectiveScale } from "../core/perspective.mjs";
 import { setting } from "../settings.mjs";
 import { referenceElevation } from "./elevation.mjs";
+import { facingScale } from "./facing.mjs";
 import { visualState } from "./state.mjs";
 
 /** Tokens plus hauts que la référence : ce sont les seuls qui peuvent s'estomper. */
@@ -26,25 +27,26 @@ export function syncPerspective(token, flags) {
   if ( token.destroyed || !mesh || mesh.destroyed ) return;
   const state = visualState(token);
 
-  // Base d'échelle : fraîche si le cœur vient de redimensionner, sinon celle d'avant notre facteur.
+  // Base d'échelle : fraîche si le cœur vient de redimensionner, sinon celle d'avant nos facteurs. Le premier relevé se fait
+  // avant tout facteur posé par ce module (rien n'est encore appliqué) ; ensuite seuls `refreshSize` / `refreshMesh` la
+  // renouvellent, sans division (le miroir passe par 0 pendant un demi-tour).
   if ( !state.baseScale || flags?.refreshSize || flags?.refreshMesh ) {
-    const k = (flags?.refreshSize || flags?.refreshMesh) ? 1 : (state.appliedScale ?? 1);
-    state.baseScale = { x: mesh.scale.x / k, y: mesh.scale.y / k };
+    state.baseScale = { x: mesh.scale.x, y: mesh.scale.y };
   }
+  // Retournement gauche / droite (issue #4) : un facteur horizontal de plus, miroir du token et plafond compris dans la base.
+  const mirror = facingScale(token);
 
   const baseAlpha = token.alpha * token.document.alpha;
   if ( !setting("perspective") ) {
-    mesh.scale.set(state.baseScale.x, state.baseScale.y);
+    mesh.scale.set(state.baseScale.x * mirror, state.baseScale.y);
     mesh.alpha = baseAlpha;
-    state.appliedScale = 1;
     elevated.delete(token);
     return;
   }
 
   const delta = token.document.elevation - referenceElevation();
   const f = perspectiveScale(delta, canvas.grid.distance, { maxScale: setting("perspectiveMax") });
-  mesh.scale.set(state.baseScale.x * f, state.baseScale.y * f);
-  state.appliedScale = f;
+  mesh.scale.set(state.baseScale.x * f * mirror, state.baseScale.y * f);
 
   if ( delta > 0 ) elevated.add(token);
   else elevated.delete(token);

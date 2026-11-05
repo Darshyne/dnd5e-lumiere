@@ -14,6 +14,8 @@ import { refreshAllCastShadows, removeCastShadows, syncCastShadows } from "./can
 import { removeContactShadow, syncContactShadow } from "./canvas/contact-shadow.mjs";
 import { markDirty as refreshDarkvisionBlur, registerDarkvisionBlur } from "./canvas/darkvision-blur.mjs";
 import { referenceToken } from "./canvas/elevation.mjs";
+import { holdFacing, registerFacing, removeFacing, trackFacing } from "./canvas/facing.mjs";
+import { registerFacingConfig } from "./ui/facing-config.mjs";
 import { removeHeight, startJump, syncHeight } from "./canvas/hover.mjs";
 import { removePerspective, syncElevatedAround, syncPerspective } from "./canvas/perspective.mjs";
 import { invalidateSun } from "./canvas/sun.mjs";
@@ -26,6 +28,7 @@ import { registerSoundConfig } from "./ui/sound-config.mjs";
 import { registerTransitionSettings, transitionsApi } from "./transitions/index.mjs";
 
 function syncToken(token, flags) {
+  trackFacing(token, flags);
   syncHeight(token);
   syncContactShadow(token);
   syncCastShadows(token);
@@ -59,6 +62,8 @@ Hooks.once("init", () => {
   registerEtherealView();
   registerSoundBehavior();
   registerSoundConfig();
+  registerFacing(token => syncPerspective(token));
+  registerFacingConfig();
   registerCarriedSounds();
   registerTransitionSettings();
   game.modules.get(MODULE_ID).api = { transitions: transitionsApi };
@@ -76,6 +81,7 @@ Hooks.once("init", () => {
   Hooks.on("destroyToken", token => {
     removeHeight(token);
     removePerspective(token);
+    removeFacing(token);
     removeContactShadow(token);
     removeCastShadows(token);
     removeTokenSound(token);
@@ -100,12 +106,17 @@ Hooks.once("init", () => {
     if ( ("movementAction" in changes) && doc.object ) syncToken(doc.object);
     // Devenu objet du moteur (un piège coché après la pose) : il perd son ombre, ou la retrouve.
     else if ( foundry.utils.hasProperty(changes, "flags.dnd5e-combat") && doc.object ) syncToken(doc.object);
+    // Orientation du token (issue #4) changée dans sa configuration : se retourner, ou reprendre son image et sa rotation.
+    else if ( foundry.utils.hasProperty(changes, `flags.${MODULE_ID}.facing`) && doc.object ) syncToken(doc.object);
     // Hauteur de la lumière portée (un flag) : sa source n'est pas réinitialisée, pas de lightingRefresh.
     if ( foundry.utils.hasProperty(changes, `flags.${MODULE_ID}`) ) refreshAllCastShadows();
   });
   // Un déplacement fait en sautant : le visuel décrit un arc (client/hooks.mjs:735, sur tous les clients).
+  // Un déplacement forcé (`displace`) garde l'orientation du token (issue #4).
   Hooks.on("moveToken", (doc, movement) => {
-    if ( doc.object ) startJump(doc.object, movement);
+    if ( !doc.object ) return;
+    holdFacing(doc.object, movement);
+    startJump(doc.object, movement);
   });
   // Changer de token contrôlé change la référence de la perspective.
   Hooks.on("controlToken", () => refreshAllSoon());

@@ -116,6 +116,10 @@
       "carriedSounds": {
         "Name": "Sons portés",
         "Hint": "Joue les sons d'ambiance portés par les créatures et les zones (réglés sur le token, onglet Apparence, et avec le comportement de région « Son d'ambiance (DAS) »)."
+      },
+      "flipTokens": {
+        "Name": "Retourner les tokens selon leur déplacement",
+        "Hint": "Un token qui va vers la gauche regarde à gauche, un token qui va vers la droite regarde à droite. Pensé pour les images vues de côté (portraits, figurines). Seul l'affichage change, rien n'est enregistré ; l'image reste droite (sans rotation). Chaque token peut dire « toujours » ou « jamais » dans sa configuration (onglet Apparence)."
       }
     },
     "LightConfig": {
@@ -208,6 +212,18 @@
           "hint": "Décoché, le son est étouffé derrière un mur ; coché, il est coupé."
         }
       }
+    },
+    "FacingConfig": {
+      "Legend": "Orientation (DAS)",
+      "Hint": "Retourne l'image de gauche à droite selon le sens de la marche, pour les images vues de côté. Le token garde alors son image droite, sans rotation ; sa rotation enregistrée sert toujours à la vision.",
+      "Mode": "Retourner selon le déplacement",
+      "ModeSetting": "Suivre le réglage du monde",
+      "ModeAlways": "Toujours",
+      "ModeNever": "Jamais",
+      "Art": "L'image regarde",
+      "ArtRight": "À droite",
+      "ArtLeft": "À gauche",
+      "ArtHint": "Le sens dans lequel la créature regarde sur l'image telle qu'affichée (miroir horizontal compris)."
     }
   },
   "TYPES": {

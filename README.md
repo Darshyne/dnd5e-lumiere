@@ -20,6 +20,7 @@ Part of **Darshyne's Automation Suite (DAS)**. Token visual effects for **Foundr
 - custom **scene transitions** (watercolour ink…), a world-wide transition for every scene, and import / export of
   transition presets as JSON;
 - **carried sounds**: an ambient sound carried by a creature or an area, with an idle sound and a combat sound.
+- **facing**: side-view tokens flip left or right according to their movement.
 
 **Purely visual and local**: nothing is ever written to a token or actor during play, each client computes its own
 rendering (the only writes are the GM's settings, such as a token's carried sound).
@@ -43,6 +44,21 @@ region behavior **Ambient sound (DAS)**: full volume inside, fading beyond its e
 - Several creatures with the same sound file play it once, at the volume of the nearest one.
 - After installing or updating to this version, **relaunch the world** once: Foundry only registers a new region
   behavior then.
+
+## Facing
+
+For side-view token art (portraits, standees): a token moving left faces left, a token moving right faces right. Turn it
+on for every token with the world setting **Flip tokens according to their movement** (off by default), or per token in
+its configuration (or the prototype token), tab *Appearance*, block **Facing (DAS)**: *follow the world setting*,
+*always* or *never*, and which way the art faces (right by default; the token's own horizontal mirror is taken into
+account).
+
+- Only the horizontal part of a move counts: a step straight up or down keeps the current facing. The token turns at
+  the start of a step and at each bend of a path, with a short animated half-turn.
+- A teleport (Misty Step) faces the direction of travel; a forced move (shove) keeps the facing.
+- A flipping token keeps its art upright, like Foundry's *Lock artwork rotation*; its saved rotation still drives
+  vision. A ceiling walker (DAS · Core) is upside down and still faces its way.
+- Nothing is written: after a reload, a token shows its art as drawn until its next step.
 
 ## Scene transitions
 
