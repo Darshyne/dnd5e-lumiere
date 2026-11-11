@@ -1,0 +1,17 @@
+{
+  "i18n": {
+    "namespaces": ["DND5E_LUMIERE"],
+    "groups": "DND5E_LUMIERE",
+    "constants": { "NS": "DND5E_LUMIERE" },
+    "patterns": [
+      { "pattern": "\\bi18n\\(\"([^\"]+)\"\\)", "keys": ["DND5E_LUMIERE.SceneConfig.$1"] },
+      { "pattern": "\\blabel\\(\"([^\"]+)\"\\)", "keys": ["DND5E_LUMIERE.SoundConfig.$1"] },
+      { "pattern": "\\b(?:toggle|range)\\(\"(\\w+)\"", "keys": ["DND5E_LUMIERE.Settings.$1.Name", "DND5E_LUMIERE.Settings.$1.Hint"] }
+    ],
+    "minKeys": 110
+  },
+  "layers": {
+    "imports": { "core": [".", "canvas", "transitions", "ui"] },
+    "pure": { "folders": ["core"], "globals": ["PIXI"] }
+  }
+}
