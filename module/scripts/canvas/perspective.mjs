@@ -5,11 +5,12 @@
  * Échelle : le cœur ne réécrit `mesh.scale` que par `mesh.resize`, dans `_refreshMeshSizeAndScale`
  * (token.mjs:1459-1478), appelé pour `refreshSize` et `refreshMesh` (token.mjs:1390, 1392). On relève
  * donc l'échelle de base à ces moments-là et on la multiplie ; hors de ces moments, la base relevée reste
- * juste. Opacité : le cœur pose `mesh.alpha = token.alpha × document.alpha` (token.mjs:1448, 1515) — on
- * reprend la même formule, voile MJ d'un token caché compris (`token.alpha`, placeable-object.mjs:478).
+ * juste. Opacité : le cœur pose `mesh.alpha` (token.mjs:1495, 1562) et d'autres modules aussi (Monk's
+ * Bloodsplats rend un mort translucide). On ne la réécrit donc plus : on l'estompe seulement, à partir de
+ * l'opacité trouvée, et on rend celle-ci quand l'estompage s'arrête (`fadedAlpha`).
  */
 
-import { overlaps, perspectiveScale } from "../core/perspective.mjs";
+import { fadedAlpha, overlaps, perspectiveScale } from "../core/perspective.mjs";
 import { setting } from "../settings.mjs";
 import { referenceElevation } from "./elevation.mjs";
 import { facingScale } from "./facing.mjs";
@@ -37,10 +38,9 @@ export function syncPerspective(token, flags) {
   // Retournement gauche / droite (issue #4) : un facteur horizontal de plus, miroir du token et plafond compris dans la base.
   const mirror = facingScale(token);
 
-  const baseAlpha = token.alpha * token.document.alpha;
   if ( !setting("perspective") ) {
     mesh.scale.set(state.baseScale.x * mirror, state.baseScale.y);
-    mesh.alpha = baseAlpha;
+    applyFade(mesh, state, false);
     elevated.delete(token);
     return;
   }
@@ -52,7 +52,17 @@ export function syncPerspective(token, flags) {
   if ( delta > 0 ) elevated.add(token);
   else elevated.delete(token);
   const fade = (delta > 0) && !token.controlled && !token.hover && coversLowerToken(token);
-  mesh.alpha = baseAlpha * (fade ? setting("fadeAlpha") : 1);
+  applyFade(mesh, state, fade);
+}
+
+/**
+ * Pose ou retire l'estompage sans écraser l'opacité du cœur ou d'un autre module (Monk's Bloodsplats) :
+ * hors estompage, on ne touche pas à `mesh.alpha`.
+ */
+function applyFade(mesh, state, fade) {
+  const { alpha, memo } = fadedAlpha(mesh.alpha, state.fade ?? null, fade, setting("fadeAlpha"));
+  if ( alpha !== null ) mesh.alpha = alpha;
+  state.fade = memo;
 }
 
 /** Un token a bougé : ceux qui sont en hauteur peuvent maintenant le recouvrir, ou plus. */

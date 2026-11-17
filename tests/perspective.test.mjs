@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  elevationLift, overlaps, PERSPECTIVE_DEFAULTS, perspectiveScale, shadowHeight
+  elevationLift, fadedAlpha, overlaps, PERSPECTIVE_DEFAULTS, perspectiveScale, shadowHeight
 } from "../module/scripts/core/perspective.mjs";
 
 const grid = { distance: 5, size: 200 };
@@ -46,5 +46,30 @@ describe("shadowHeight", () => {
     expect(shadowHeight(0, 200)).toBe(0);
     expect(shadowHeight(50, 200)).toBeCloseTo(0.5);
     expect(shadowHeight(500, 200)).toBe(1);
+  });
+});
+
+describe("fadedAlpha", () => {
+  it("sans estompage ni estompage en cours : ne touche pas à l'opacité (celle d'un autre module reste)", () => {
+    expect(fadedAlpha(0.2, null, false, 0.5)).toEqual({ alpha: null, memo: null });
+  });
+  it("estompe à partir de l'opacité trouvée, pas de 1", () => {
+    const r = fadedAlpha(0.2, null, true, 0.5);
+    expect(r.alpha).toBeCloseTo(0.1);
+    expect(r.memo).toEqual({ base: 0.2, written: r.alpha });
+  });
+  it("ne cumule pas l'estompage d'un rafraîchissement à l'autre", () => {
+    const first = fadedAlpha(1, null, true, 0.5);
+    const again = fadedAlpha(first.alpha, first.memo, true, 0.5);
+    expect(again.alpha).toBeCloseTo(0.5);
+  });
+  it("fin de l'estompage : rend l'opacité d'avant", () => {
+    const first = fadedAlpha(0.8, null, true, 0.5);
+    expect(fadedAlpha(first.alpha, first.memo, false, 0.5)).toEqual({ alpha: 0.8, memo: null });
+  });
+  it("l'opacité a été reposée par quelqu'un d'autre : elle devient la base", () => {
+    const first = fadedAlpha(1, null, true, 0.5);
+    expect(fadedAlpha(0.3, first.memo, true, 0.5).alpha).toBeCloseTo(0.15);
+    expect(fadedAlpha(0.3, first.memo, false, 0.5)).toEqual({ alpha: null, memo: null });
   });
 });

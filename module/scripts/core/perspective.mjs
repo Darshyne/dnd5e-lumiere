@@ -59,3 +59,23 @@ export function shadowHeight(liftPx, tokenHeight) {
   if ( !(liftPx > 0) || !(tokenHeight > 0) ) return 0;
   return Math.min(1, liftPx / (0.5 * tokenHeight));
 }
+
+/**
+ * Opacité d'un token avec l'estompage de ce module, sans écraser celle que posent le cœur ou un autre module
+ * (Monk's Bloodsplats rend un mort translucide : support Discord du 2026-11-17).
+ *
+ * L'opacité trouvée sur le mesh est la base, sauf si c'est encore celle que ce module a posée : la base d'alors
+ * reste juste. Sans estompage, on ne touche à rien, sauf pour retirer un estompage encore en place.
+ * @param {number} current     Opacité actuelle du mesh.
+ * @param {{base: number, written: number}|null} memo  Ce que ce module a posé la dernière fois (null : rien).
+ * @param {boolean} fade       Le token doit-il être estompé ?
+ * @param {number} fadeAlpha   Facteur d'estompage.
+ * @returns {{alpha: number|null, memo: {base: number, written: number}|null}}  `alpha` null : ne rien écrire.
+ */
+export function fadedAlpha(current, memo, fade, fadeAlpha) {
+  const ours = !!memo && (current === memo.written);
+  const base = ours ? memo.base : current;
+  if ( !fade ) return { alpha: ours ? base : null, memo: null };
+  const alpha = base * fadeAlpha;
+  return { alpha, memo: { base, written: alpha } };
+}
