@@ -1,0 +1,245 @@
+{
+  "DND5E_LUMIERE": {
+    "Settings": {
+      "contactShadow": {
+        "Name": "Ombra di contatto",
+        "Hint": "Un'ombra morbida sotto ogni token."
+      },
+      "hover": {
+        "Name": "Oscillazione in volo",
+        "Hint": "Le creature in volo oscillano dolcemente sopra la propria ombra."
+      },
+      "jump": {
+        "Name": "Arco dei salti",
+        "Hint": "Un token che si sposta saltando descrive un arco sopra la propria ombra."
+      },
+      "perspective": {
+        "Name": "Prospettiva in base all'elevazione",
+        "Hint": "Un token più in basso del tuo appare più piccolo; uno più in alto appare più grande, e semitrasparente se ne copre un altro."
+      },
+      "lightShadows": {
+        "Name": "Ombre proiettate dalle luci",
+        "Hint": "Le due luci più forti che illuminano un token ne proiettano l'ombra dal lato opposto."
+      },
+      "contactSize": {
+        "Name": "Dimensione dell'ombra di contatto",
+        "Hint": "Diametro dell'ombra rispetto al token (1 = stessa larghezza; sopra 1 sporge dall'immagine, necessario per un ritratto tondo opaco)."
+      },
+      "contactOpacity": {
+        "Name": "Opacità dell'ombra di contatto",
+        "Hint": "0 = invisibile, 1 = nero pieno al centro."
+      },
+      "hoverLift": {
+        "Name": "Altezza di volo",
+        "Hint": "Distanza tra un token in volo e la sua ombra, come frazione della sua altezza."
+      },
+      "hoverAmplitude": {
+        "Name": "Ampiezza dell'oscillazione",
+        "Hint": "Ampiezza dell'oscillazione, come frazione dell'altezza del token (0 = fermo)."
+      },
+      "jumpHeight": {
+        "Name": "Altezza dei salti",
+        "Hint": "Altezza del culmine dell'arco, come frazione della lunghezza del salto (tra 0,3 e 1,25 quadretti)."
+      },
+      "elevationLift": {
+        "Name": "Scostamento massimo in altezza",
+        "Hint": "Distanza massima, in quadretti, tra un token sopraelevato e la sua ombra (raggiunta intorno a 35 ft su una griglia da 5 ft)."
+      },
+      "perspectiveMax": {
+        "Name": "Variazione massima di dimensione",
+        "Hint": "Un token più in alto del tuo si ingrandisce, uno più in basso si rimpicciolisce, al massimo di questa frazione (0,2 → tra 80% e 120%)."
+      },
+      "fadeAlpha": {
+        "Name": "Opacità di un token che ne copre un altro",
+        "Hint": "Un token più in alto del tuo che copre un token più in basso sfuma fino a questa opacità; torna opaco al passaggio del mouse o quando lo controlli."
+      },
+      "castIntensity": {
+        "Name": "Intensità delle ombre proiettate",
+        "Hint": "Opacità delle ombre proiettate dalle luci (0 = nessuna, 1 = nero pieno sotto una Luce Intensa)."
+      },
+      "lightHeight": {
+        "Name": "Altezza delle luci (ft)",
+        "Hint": "Altezza di una luce sopra la sua elevazione. Più è bassa, più le ombre sono lunghe. Si può ridefinire per singola luce con il flag dnd5e-lumiere.height."
+      },
+      "castMaxLength": {
+        "Name": "Lunghezza massima delle ombre proiettate",
+        "Hint": "In quadretti."
+      },
+      "darkvisionBlur": {
+        "Name": "Sfocatura oltre la Scurovisione",
+        "Hint": "Oltre la gittata della Scurovisione dei tuoi token, la Luce Fioca (area Leggermente Oscurata) è leggermente sfocata; la Luce Intensa resta nitida. Il grigio entro la gittata è quello di Foundry."
+      },
+      "darkvisionBlurStrength": {
+        "Name": "Intensità della sfocatura (Scurovisione)",
+        "Hint": "Raggio della sfocatura in pixel dello schermo (0 = nessuna)."
+      },
+      "castFlicker": {
+        "Name": "Tremolio delle ombre sotto una fiamma",
+        "Hint": "Sotto una luce animata a fiamma (fuoco, torcia), le ombre proiettate tremolano al ritmo della fiamma: più pallide e un po' più lunghe quando si abbassa (0 = ferme, 1 = predefinito)."
+      },
+      "sunShadows": {
+        "Name": "Ombre del sole",
+        "Hint": "Quando l'illuminazione globale della scena è attiva (Configurazione della scena, scheda Visibilità), il sole proietta l'ombra dei token in base all'ora del mondo: lunga all'alba e al tramonto, corta a mezzogiorno. Usa l'alba e il crepuscolo di Simple Timekeeping & Calendar se è attivo (per mese, oppure in base alla sua latitudine e alla stagione), altrimenti alba alle 6:00 e tramonto alle 18:00. Si può disattivare per singola scena (Configurazione della scena, scheda Ambiente)."
+      },
+      "sunAltitude": {
+        "Name": "Altezza del sole a mezzogiorno (°)",
+        "Hint": "Più è bassa, più le ombre di mezzogiorno sono lunghe."
+      },
+      "levelTransition": {
+        "Name": "Transizione al cambio di livello (alpha)",
+        "Hint": "Quando la vista passa a un altro livello della stessa scena, un effetto di profondità: salendo, il livello che lasci si rimpicciolisce e si allontana verso il basso mentre quello nuovo si posa dall'alto sullo schermo; scendendo, il contrario. Viene mostrato solo ciò che vedono i tuoi token. Sperimentale."
+      },
+      "levelTransitionDuration": {
+        "Name": "Durata della transizione di livello (ms)",
+        "Hint": "Durata dell'effetto di profondità al cambio di livello."
+      },
+      "etherealView": {
+        "Name": "Vista dal Piano Etereo",
+        "Hint": "Quando un token da cui guardi è Etereo (condizione «Etereo» di dnd5e), il Piano Materiale diventa monocromo, sfocato, di un grigio nebbioso; le creature Eteree risaltano, nitide, nei propri colori, con un leggero alone azzurrognolo."
+      },
+      "etherealBlur": {
+        "Name": "Piano Etereo: sfocatura del Piano Materiale",
+        "Hint": "Raggio della sfocatura in pixel dello schermo (0 = nessuna)."
+      },
+      "etherealMist": {
+        "Name": "Piano Etereo: foschia",
+        "Hint": "Quantità di foschia grigio-azzurra sul Piano Materiale (0 = grigio semplice)."
+      },
+      "etherealHalo": {
+        "Name": "Piano Etereo: opacità dell'alone",
+        "Hint": "Alone attorno alle creature Eteree viste dal Piano Etereo (0 = nessun alone)."
+      },
+      "etherealHaloColor": {
+        "Name": "Piano Etereo: colore dell'alone",
+        "Hint": "Colore dell'alone attorno alle creature Eteree."
+      },
+      "carriedSounds": {
+        "Name": "Suoni trasportati",
+        "Hint": "Riproduce i suoni d'ambiente trasportati dalle creature e dalle aree (impostati sul token, scheda Aspetto, e con il comportamento di regione «Suono d'ambiente (DAS)»)."
+      },
+      "flipTokens": {
+        "Name": "Specchia i token in base al movimento",
+        "Hint": "Un token che va verso sinistra guarda a sinistra, un token che va verso destra guarda a destra. Pensato per le immagini viste di lato (ritratti, sagome). Cambia solo la visualizzazione, non viene salvato nulla; l'immagine resta dritta (senza rotazione). Ogni token può indicare «sempre» o «mai» nella propria configurazione (scheda Aspetto)."
+      }
+    },
+    "LightConfig": {
+      "Height": "Altezza della luce",
+      "HeightHint": "Altezza sopra l'elevazione della luce, usata per le ombre proiettate di Ombre e atmosfera. Più è bassa, più le ombre sono lunghe. Vuoto: impostazione del mondo ({default})."
+    },
+    "SceneConfig": {
+      "Legend": "Sole (Ombre e atmosfera)",
+      "Sun": "Ombre del sole",
+      "SunHint": "Deseleziona per un interno illuminato dall'illuminazione globale: lì il sole non proietta alcuna ombra.",
+      "North": "Nord della mappa",
+      "NorthHint": "Dove punta il nord, in senso orario a partire dall'alto della mappa (0 = in alto, 90 = a destra). Il sole sorge a est e a mezzogiorno è a sud."
+    },
+    "Transitions": {
+      "Title": "Transizioni di scena",
+      "Menu": {
+        "Name": "Transizioni di scena",
+        "Label": "Transizioni",
+        "Hint": "Transizioni di scena personalizzate (inchiostro…), una transizione per tutte le scene del mondo, e importazione / esportazione di file di configurazione delle transizioni (JSON)."
+      },
+      "None": "Nessuna",
+      "Global": "Transizione del mondo",
+      "GlobalHint": "Riprodotta quando qualcuno entra in una scena che non ha una transizione propria (Configurazione della scena, scheda Base).",
+      "Type": "Transizione",
+      "Duration": "Durata",
+      "ActiveOnly": "Solo all'attivazione della scena",
+      "ActiveOnlyHint": "Non quando un GM si limita a visualizzare un'altra scena.",
+      "Override": "Sostituisci le transizioni proprie delle scene",
+      "OverrideHint": "Riprodotta anche nelle scene che hanno una transizione propria.",
+      "Save": "Salva",
+      "Saved": "Transizione del mondo salvata.",
+      "List": "Transizioni di Ombre e atmosfera",
+      "Name": "Nome",
+      "Effect": "Effetto",
+      "Source": "Origine",
+      "BuiltIn": "Integrata",
+      "Imported": "Importata",
+      "ImportHint": "Un file di transizione contiene solo i parametri di un effetto integrato (nessun codice): esporta una transizione integrata per avere un modello, cambiane id, etichetta e parametri, poi importala. Stesso id = sostituita.",
+      "Import": "Importa un file JSON…",
+      "ExportAll": "Esporta le transizioni importate",
+      "ExportOne": "Esporta in JSON",
+      "Preview": "Anteprima sulla scena visualizzata",
+      "Remove": "Elimina questa transizione",
+      "RemoveConfirm": "Eliminare la transizione importata «{id}»? Le scene che la usano torneranno alla dissolvenza di Foundry.",
+      "NoCanvas": "Nessuna scena è visualizzata.",
+      "BadJson": "Questo file non è un JSON valido: {error}",
+      "ImportErrors": "{count} errore/i nel file (vedi la console). Il primo: {first}",
+      "ImportDone": "Transizioni importate: {added} aggiunta/e, {replaced} sostituita/e ({warnings} avviso/i, vedi la console).",
+      "Base": {
+        "ink": "Inchiostro",
+        "depth": "Profondità"
+      },
+      "Presets": {
+        "ink": "Inchiostro (acquerello)",
+        "inkWash": "Inchiostro (dilavamento)",
+        "inkBlood": "Inchiostro di sangue",
+        "depth": "Profondità (cambio di livello)"
+      }
+    },
+    "SoundConfig": {
+      "Legend": "Suono trasportato (DAS)",
+      "Hint": "Un suono d'ambiente che questa creatura porta con sé, udito da ogni giocatore dal proprio token, sul canale Ambiente. Muto quando il token è occultato, morto, nascosto con Furtività o sul Piano Etereo.",
+      "Idle": "Suono a riposo",
+      "Combat": "Suono in combattimento",
+      "CombatHint": "Sostituisce il suono a riposo finché la creatura è in un combattimento iniziato. Vuoto: il suono a riposo continua.",
+      "Radius": "Raggio",
+      "Volume": "Volume",
+      "Walls": "Bloccato dai muri",
+      "WallsHint": "Deselezionato, il suono è attutito dietro un muro; selezionato, viene interrotto."
+    },
+    "SoundBehavior": {
+      "FIELDS": {
+        "idle": {
+          "label": "Suono a riposo",
+          "hint": "Udito a pieno volume dentro l'area, si attenua oltre il suo bordo."
+        },
+        "combat": {
+          "label": "Suono in combattimento",
+          "hint": "Sostituisce il suono a riposo finché in questa scena c'è un combattimento iniziato. Vuoto: il suono a riposo continua."
+        },
+        "radius": {
+          "label": "Raggio oltre il bordo",
+          "hint": "In unità della scena. Vuoto: sei quadretti."
+        },
+        "volume": {
+          "label": "Volume"
+        },
+        "walls": {
+          "label": "Bloccato dai muri",
+          "hint": "Deselezionato, il suono è attutito dietro un muro; selezionato, viene interrotto."
+        }
+      }
+    },
+    "FacingConfig": {
+      "Legend": "Orientamento (DAS)",
+      "Hint": "Specchia l'immagine verso sinistra o verso destra in base alla direzione di marcia, per le immagini viste di lato. Il token mantiene allora l'immagine dritta, senza rotazione; la rotazione salvata continua a servire per la visione.",
+      "Mode": "Specchia in base al movimento",
+      "ModeSetting": "Segui l'impostazione del mondo",
+      "ModeAlways": "Sempre",
+      "ModeNever": "Mai",
+      "Art": "L'immagine guarda",
+      "ArtRight": "A destra",
+      "ArtLeft": "A sinistra",
+      "ArtHint": "Il verso in cui guarda la creatura nell'immagine così come è visualizzata (specchiatura orizzontale compresa)."
+    },
+    "SettingsWindow": {
+      "Tab": {
+        "shadows": "Ombre",
+        "movement": "Movimento e altezza",
+        "vision": "Visione",
+        "sounds": "Suoni",
+        "transitions": "Transizioni"
+      }
+    }
+  },
+  "TYPES": {
+    "RegionBehavior": {
+      "dnd5e-lumiere": {
+        "ambientSound": "Suono d'ambiente (DAS)"
+      }
+    }
+  }
+}
